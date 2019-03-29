@@ -1,0 +1,20 @@
+grammar pucrs.lp.scheme.Scheme with org.eclipse.xtext.common.Terminals
+
+generate scheme "http://www.lp.pucrs/scheme/Scheme"
+
+Model:
+	commands+=Command*;
+	
+Command:
+	//'Hello' name=ID '!'
+	Operation
+;
+	
+Operation:
+	"(" (operator+=Operator) value=INT value2=INT ")"
+	//"(" "+" value=INT value2=INT ")"
+;
+
+terminal Operator:
+	"+" | "-" | "/" | "*"
+;

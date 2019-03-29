@@ -1,9 +1,0 @@
-grammar org.xtext.ReconhecedorScheme.Scheme with org.eclipse.xtext.common.Terminals
-
-generate scheme "http://www.xtext.org/ReconhecedorScheme/Scheme"
-
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';

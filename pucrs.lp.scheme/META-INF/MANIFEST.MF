@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: pucrs.lp.scheme
+Bundle-ManifestVersion: 2
+Bundle-Name: pucrs.lp.scheme
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: pucrs.lp.scheme; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.eclipse.xtend.lib;bundle-version="2.14.0",
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: pucrs.lp.scheme.parser.antlr.internal,
+ pucrs.lp.scheme,
+ pucrs.lp.scheme.parser.antlr,
+ pucrs.lp.scheme.scheme.util,
+ pucrs.lp.scheme.scheme,
+ pucrs.lp.scheme.generator,
+ pucrs.lp.scheme.serializer,
+ pucrs.lp.scheme.services,
+ pucrs.lp.scheme.scheme.impl,
+ pucrs.lp.scheme.validation,
+ pucrs.lp.scheme.scoping
+Import-Package: org.apache.log4j
