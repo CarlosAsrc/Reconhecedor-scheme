@@ -8,7 +8,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import pucrs.lp.scheme.scheme.Parameter;
 import pucrs.lp.scheme.scheme.SchemePackage;
@@ -27,7 +26,7 @@ import pucrs.lp.scheme.scheme.SchemePackage;
  *
  * @generated
  */
-public class ParameterImpl extends MinimalEObjectImpl.Container implements Parameter
+public class ParameterImpl extends CommandImpl implements Parameter
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.

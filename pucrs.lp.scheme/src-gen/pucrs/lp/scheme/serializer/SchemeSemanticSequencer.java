@@ -95,6 +95,7 @@ public class SchemeSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Command returns Parameter
 	 *     Parameter returns Parameter
 	 *
 	 * Constraint:

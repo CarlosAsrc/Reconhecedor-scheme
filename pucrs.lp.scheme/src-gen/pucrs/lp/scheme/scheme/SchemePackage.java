@@ -259,7 +259,7 @@ public interface SchemePackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER__VALUE = 0;
+  int PARAMETER__VALUE = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Atom</b></em>' attribute.
@@ -268,7 +268,7 @@ public interface SchemePackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER__ATOM = 1;
+  int PARAMETER__ATOM = COMMAND_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Parameter</em>' class.
@@ -277,7 +277,7 @@ public interface SchemePackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER_FEATURE_COUNT = 2;
+  int PARAMETER_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
 
 
   /**

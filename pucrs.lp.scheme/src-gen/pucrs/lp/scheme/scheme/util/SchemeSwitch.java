@@ -114,6 +114,7 @@ public class SchemeSwitch<T> extends Switch<T>
       {
         Parameter parameter = (Parameter)theEObject;
         T result = caseParameter(parameter);
+        if (result == null) result = caseCommand(parameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

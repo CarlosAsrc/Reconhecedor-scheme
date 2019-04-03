@@ -240,6 +240,12 @@ rule__Command__Alternatives
 		ruleDefine
 		{ after(grammarAccess.getCommandAccess().getDefineParserRuleCall_1()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getCommandAccess().getParameterParserRuleCall_2()); }
+		ruleParameter
+		{ after(grammarAccess.getCommandAccess().getParameterParserRuleCall_2()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);

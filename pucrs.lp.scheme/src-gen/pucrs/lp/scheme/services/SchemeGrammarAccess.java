@@ -42,13 +42,14 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cOperationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cDefineParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cParameterParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Command:
-		//	Operation | Define;
+		//	Operation | Define | Parameter;
 		@Override public ParserRule getRule() { return rule; }
 		
 		////'Hello' name=ID '!'
-		// Operation | Define
+		// Operation | Define | Parameter
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		////'Hello' name=ID '!'
@@ -57,6 +58,9 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//Define
 		public RuleCall getDefineParserRuleCall_1() { return cDefineParserRuleCall_1; }
+		
+		//Parameter
+		public RuleCall getParameterParserRuleCall_2() { return cParameterParserRuleCall_2; }
 	}
 	public class OperationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "pucrs.lp.scheme.Scheme.Operation");
@@ -333,7 +337,7 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Command:
-	//	Operation | Define;
+	//	Operation | Define | Parameter;
 	public CommandElements getCommandAccess() {
 		return pCommand;
 	}

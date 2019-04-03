@@ -398,6 +398,7 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
     // Add supertypes to classes
     operationEClass.getESuperTypes().add(this.getCommand());
     defineEClass.getESuperTypes().add(this.getCommand());
+    parameterEClass.getESuperTypes().add(this.getCommand());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -231,7 +231,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleCommand"
-    // InternalScheme.g:107:1: ruleCommand returns [EObject current=null] : (this_Operation_0= ruleOperation | this_Define_1= ruleDefine ) ;
+    // InternalScheme.g:107:1: ruleCommand returns [EObject current=null] : (this_Operation_0= ruleOperation | this_Define_1= ruleDefine | this_Parameter_2= ruleParameter ) ;
     public final EObject ruleCommand() throws RecognitionException {
         EObject current = null;
 
@@ -239,33 +239,44 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
         EObject this_Define_1 = null;
 
+        EObject this_Parameter_2 = null;
+
 
 
         	enterRule();
 
         try {
-            // InternalScheme.g:113:2: ( (this_Operation_0= ruleOperation | this_Define_1= ruleDefine ) )
-            // InternalScheme.g:114:2: (this_Operation_0= ruleOperation | this_Define_1= ruleDefine )
+            // InternalScheme.g:113:2: ( (this_Operation_0= ruleOperation | this_Define_1= ruleDefine | this_Parameter_2= ruleParameter ) )
+            // InternalScheme.g:114:2: (this_Operation_0= ruleOperation | this_Define_1= ruleDefine | this_Parameter_2= ruleParameter )
             {
-            // InternalScheme.g:114:2: (this_Operation_0= ruleOperation | this_Define_1= ruleDefine )
-            int alt2=2;
+            // InternalScheme.g:114:2: (this_Operation_0= ruleOperation | this_Define_1= ruleDefine | this_Parameter_2= ruleParameter )
+            int alt2=3;
             int LA2_0 = input.LA(1);
 
             if ( (LA2_0==12) ) {
-                int LA2_1 = input.LA(2);
-
-                if ( (LA2_1==14) ) {
+                switch ( input.LA(2) ) {
+                case 14:
+                    {
                     alt2=2;
-                }
-                else if ( (LA2_1==RULE_OPERATOR) ) {
+                    }
+                    break;
+                case RULE_OPERATOR:
+                    {
                     alt2=1;
-                }
-                else {
+                    }
+                    break;
+                case RULE_ID:
+                    {
+                    alt2=3;
+                    }
+                    break;
+                default:
                     NoViableAltException nvae =
                         new NoViableAltException("", 2, 1, input);
 
                     throw nvae;
                 }
+
             }
             else {
                 NoViableAltException nvae =
@@ -310,6 +321,24 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
+                case 3 :
+                    // InternalScheme.g:133:3: this_Parameter_2= ruleParameter
+                    {
+
+                    			newCompositeNode(grammarAccess.getCommandAccess().getParameterParserRuleCall_2());
+                    		
+                    pushFollow(FOLLOW_2);
+                    this_Parameter_2=ruleParameter();
+
+                    state._fsp--;
+
+
+                    			current = this_Parameter_2;
+                    			afterParserOrEnumRuleCall();
+                    		
+
+                    }
+                    break;
 
             }
 
@@ -333,7 +362,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOperation"
-    // InternalScheme.g:136:1: entryRuleOperation returns [EObject current=null] : iv_ruleOperation= ruleOperation EOF ;
+    // InternalScheme.g:145:1: entryRuleOperation returns [EObject current=null] : iv_ruleOperation= ruleOperation EOF ;
     public final EObject entryRuleOperation() throws RecognitionException {
         EObject current = null;
 
@@ -341,8 +370,8 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalScheme.g:136:50: (iv_ruleOperation= ruleOperation EOF )
-            // InternalScheme.g:137:2: iv_ruleOperation= ruleOperation EOF
+            // InternalScheme.g:145:50: (iv_ruleOperation= ruleOperation EOF )
+            // InternalScheme.g:146:2: iv_ruleOperation= ruleOperation EOF
             {
              newCompositeNode(grammarAccess.getOperationRule()); 
             pushFollow(FOLLOW_1);
@@ -369,7 +398,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOperation"
-    // InternalScheme.g:143:1: ruleOperation returns [EObject current=null] : (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( ( (lv_simpleOperation_2_0= ruleSimpleOperation ) ) | ( (lv_atom_3_0= ruleAtom ) ) )+ otherlv_4= ')' ) ;
+    // InternalScheme.g:152:1: ruleOperation returns [EObject current=null] : (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( ( (lv_simpleOperation_2_0= ruleSimpleOperation ) ) | ( (lv_atom_3_0= ruleAtom ) ) )+ otherlv_4= ')' ) ;
     public final EObject ruleOperation() throws RecognitionException {
         EObject current = null;
 
@@ -385,21 +414,21 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalScheme.g:149:2: ( (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( ( (lv_simpleOperation_2_0= ruleSimpleOperation ) ) | ( (lv_atom_3_0= ruleAtom ) ) )+ otherlv_4= ')' ) )
-            // InternalScheme.g:150:2: (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( ( (lv_simpleOperation_2_0= ruleSimpleOperation ) ) | ( (lv_atom_3_0= ruleAtom ) ) )+ otherlv_4= ')' )
+            // InternalScheme.g:158:2: ( (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( ( (lv_simpleOperation_2_0= ruleSimpleOperation ) ) | ( (lv_atom_3_0= ruleAtom ) ) )+ otherlv_4= ')' ) )
+            // InternalScheme.g:159:2: (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( ( (lv_simpleOperation_2_0= ruleSimpleOperation ) ) | ( (lv_atom_3_0= ruleAtom ) ) )+ otherlv_4= ')' )
             {
-            // InternalScheme.g:150:2: (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( ( (lv_simpleOperation_2_0= ruleSimpleOperation ) ) | ( (lv_atom_3_0= ruleAtom ) ) )+ otherlv_4= ')' )
-            // InternalScheme.g:151:3: otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( ( (lv_simpleOperation_2_0= ruleSimpleOperation ) ) | ( (lv_atom_3_0= ruleAtom ) ) )+ otherlv_4= ')'
+            // InternalScheme.g:159:2: (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( ( (lv_simpleOperation_2_0= ruleSimpleOperation ) ) | ( (lv_atom_3_0= ruleAtom ) ) )+ otherlv_4= ')' )
+            // InternalScheme.g:160:3: otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( ( (lv_simpleOperation_2_0= ruleSimpleOperation ) ) | ( (lv_atom_3_0= ruleAtom ) ) )+ otherlv_4= ')'
             {
             otherlv_0=(Token)match(input,12,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getOperationAccess().getLeftParenthesisKeyword_0());
             		
-            // InternalScheme.g:155:3: ( (lv_operator_1_0= RULE_OPERATOR ) )
-            // InternalScheme.g:156:4: (lv_operator_1_0= RULE_OPERATOR )
+            // InternalScheme.g:164:3: ( (lv_operator_1_0= RULE_OPERATOR ) )
+            // InternalScheme.g:165:4: (lv_operator_1_0= RULE_OPERATOR )
             {
-            // InternalScheme.g:156:4: (lv_operator_1_0= RULE_OPERATOR )
-            // InternalScheme.g:157:5: lv_operator_1_0= RULE_OPERATOR
+            // InternalScheme.g:165:4: (lv_operator_1_0= RULE_OPERATOR )
+            // InternalScheme.g:166:5: lv_operator_1_0= RULE_OPERATOR
             {
             lv_operator_1_0=(Token)match(input,RULE_OPERATOR,FOLLOW_5); 
 
@@ -421,7 +450,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalScheme.g:173:3: ( ( (lv_simpleOperation_2_0= ruleSimpleOperation ) ) | ( (lv_atom_3_0= ruleAtom ) ) )+
+            // InternalScheme.g:182:3: ( ( (lv_simpleOperation_2_0= ruleSimpleOperation ) ) | ( (lv_atom_3_0= ruleAtom ) ) )+
             int cnt3=0;
             loop3:
             do {
@@ -438,13 +467,13 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalScheme.g:174:4: ( (lv_simpleOperation_2_0= ruleSimpleOperation ) )
+            	    // InternalScheme.g:183:4: ( (lv_simpleOperation_2_0= ruleSimpleOperation ) )
             	    {
-            	    // InternalScheme.g:174:4: ( (lv_simpleOperation_2_0= ruleSimpleOperation ) )
-            	    // InternalScheme.g:175:5: (lv_simpleOperation_2_0= ruleSimpleOperation )
+            	    // InternalScheme.g:183:4: ( (lv_simpleOperation_2_0= ruleSimpleOperation ) )
+            	    // InternalScheme.g:184:5: (lv_simpleOperation_2_0= ruleSimpleOperation )
             	    {
-            	    // InternalScheme.g:175:5: (lv_simpleOperation_2_0= ruleSimpleOperation )
-            	    // InternalScheme.g:176:6: lv_simpleOperation_2_0= ruleSimpleOperation
+            	    // InternalScheme.g:184:5: (lv_simpleOperation_2_0= ruleSimpleOperation )
+            	    // InternalScheme.g:185:6: lv_simpleOperation_2_0= ruleSimpleOperation
             	    {
 
             	    						newCompositeNode(grammarAccess.getOperationAccess().getSimpleOperationSimpleOperationParserRuleCall_2_0_0());
@@ -475,13 +504,13 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
             	    }
             	    break;
             	case 2 :
-            	    // InternalScheme.g:194:4: ( (lv_atom_3_0= ruleAtom ) )
+            	    // InternalScheme.g:203:4: ( (lv_atom_3_0= ruleAtom ) )
             	    {
-            	    // InternalScheme.g:194:4: ( (lv_atom_3_0= ruleAtom ) )
-            	    // InternalScheme.g:195:5: (lv_atom_3_0= ruleAtom )
+            	    // InternalScheme.g:203:4: ( (lv_atom_3_0= ruleAtom ) )
+            	    // InternalScheme.g:204:5: (lv_atom_3_0= ruleAtom )
             	    {
-            	    // InternalScheme.g:195:5: (lv_atom_3_0= ruleAtom )
-            	    // InternalScheme.g:196:6: lv_atom_3_0= ruleAtom
+            	    // InternalScheme.g:204:5: (lv_atom_3_0= ruleAtom )
+            	    // InternalScheme.g:205:6: lv_atom_3_0= ruleAtom
             	    {
 
             	    						newCompositeNode(grammarAccess.getOperationAccess().getAtomAtomParserRuleCall_2_1_0());
@@ -548,7 +577,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleSimpleOperation"
-    // InternalScheme.g:222:1: entryRuleSimpleOperation returns [EObject current=null] : iv_ruleSimpleOperation= ruleSimpleOperation EOF ;
+    // InternalScheme.g:231:1: entryRuleSimpleOperation returns [EObject current=null] : iv_ruleSimpleOperation= ruleSimpleOperation EOF ;
     public final EObject entryRuleSimpleOperation() throws RecognitionException {
         EObject current = null;
 
@@ -556,8 +585,8 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalScheme.g:222:56: (iv_ruleSimpleOperation= ruleSimpleOperation EOF )
-            // InternalScheme.g:223:2: iv_ruleSimpleOperation= ruleSimpleOperation EOF
+            // InternalScheme.g:231:56: (iv_ruleSimpleOperation= ruleSimpleOperation EOF )
+            // InternalScheme.g:232:2: iv_ruleSimpleOperation= ruleSimpleOperation EOF
             {
              newCompositeNode(grammarAccess.getSimpleOperationRule()); 
             pushFollow(FOLLOW_1);
@@ -584,7 +613,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSimpleOperation"
-    // InternalScheme.g:229:1: ruleSimpleOperation returns [EObject current=null] : (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( (lv_value_2_0= ruleAtom ) )+ otherlv_3= ')' ) ;
+    // InternalScheme.g:238:1: ruleSimpleOperation returns [EObject current=null] : (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( (lv_value_2_0= ruleAtom ) )+ otherlv_3= ')' ) ;
     public final EObject ruleSimpleOperation() throws RecognitionException {
         EObject current = null;
 
@@ -598,21 +627,21 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalScheme.g:235:2: ( (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( (lv_value_2_0= ruleAtom ) )+ otherlv_3= ')' ) )
-            // InternalScheme.g:236:2: (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( (lv_value_2_0= ruleAtom ) )+ otherlv_3= ')' )
+            // InternalScheme.g:244:2: ( (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( (lv_value_2_0= ruleAtom ) )+ otherlv_3= ')' ) )
+            // InternalScheme.g:245:2: (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( (lv_value_2_0= ruleAtom ) )+ otherlv_3= ')' )
             {
-            // InternalScheme.g:236:2: (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( (lv_value_2_0= ruleAtom ) )+ otherlv_3= ')' )
-            // InternalScheme.g:237:3: otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( (lv_value_2_0= ruleAtom ) )+ otherlv_3= ')'
+            // InternalScheme.g:245:2: (otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( (lv_value_2_0= ruleAtom ) )+ otherlv_3= ')' )
+            // InternalScheme.g:246:3: otherlv_0= '(' ( (lv_operator_1_0= RULE_OPERATOR ) ) ( (lv_value_2_0= ruleAtom ) )+ otherlv_3= ')'
             {
             otherlv_0=(Token)match(input,12,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getSimpleOperationAccess().getLeftParenthesisKeyword_0());
             		
-            // InternalScheme.g:241:3: ( (lv_operator_1_0= RULE_OPERATOR ) )
-            // InternalScheme.g:242:4: (lv_operator_1_0= RULE_OPERATOR )
+            // InternalScheme.g:250:3: ( (lv_operator_1_0= RULE_OPERATOR ) )
+            // InternalScheme.g:251:4: (lv_operator_1_0= RULE_OPERATOR )
             {
-            // InternalScheme.g:242:4: (lv_operator_1_0= RULE_OPERATOR )
-            // InternalScheme.g:243:5: lv_operator_1_0= RULE_OPERATOR
+            // InternalScheme.g:251:4: (lv_operator_1_0= RULE_OPERATOR )
+            // InternalScheme.g:252:5: lv_operator_1_0= RULE_OPERATOR
             {
             lv_operator_1_0=(Token)match(input,RULE_OPERATOR,FOLLOW_5); 
 
@@ -634,7 +663,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalScheme.g:259:3: ( (lv_value_2_0= ruleAtom ) )+
+            // InternalScheme.g:268:3: ( (lv_value_2_0= ruleAtom ) )+
             int cnt4=0;
             loop4:
             do {
@@ -648,10 +677,10 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalScheme.g:260:4: (lv_value_2_0= ruleAtom )
+            	    // InternalScheme.g:269:4: (lv_value_2_0= ruleAtom )
             	    {
-            	    // InternalScheme.g:260:4: (lv_value_2_0= ruleAtom )
-            	    // InternalScheme.g:261:5: lv_value_2_0= ruleAtom
+            	    // InternalScheme.g:269:4: (lv_value_2_0= ruleAtom )
+            	    // InternalScheme.g:270:5: lv_value_2_0= ruleAtom
             	    {
 
             	    					newCompositeNode(grammarAccess.getSimpleOperationAccess().getValueAtomParserRuleCall_2_0());
@@ -715,7 +744,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDefine"
-    // InternalScheme.g:286:1: entryRuleDefine returns [EObject current=null] : iv_ruleDefine= ruleDefine EOF ;
+    // InternalScheme.g:295:1: entryRuleDefine returns [EObject current=null] : iv_ruleDefine= ruleDefine EOF ;
     public final EObject entryRuleDefine() throws RecognitionException {
         EObject current = null;
 
@@ -723,8 +752,8 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalScheme.g:286:47: (iv_ruleDefine= ruleDefine EOF )
-            // InternalScheme.g:287:2: iv_ruleDefine= ruleDefine EOF
+            // InternalScheme.g:295:47: (iv_ruleDefine= ruleDefine EOF )
+            // InternalScheme.g:296:2: iv_ruleDefine= ruleDefine EOF
             {
              newCompositeNode(grammarAccess.getDefineRule()); 
             pushFollow(FOLLOW_1);
@@ -751,7 +780,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDefine"
-    // InternalScheme.g:293:1: ruleDefine returns [EObject current=null] : (otherlv_0= '(' otherlv_1= 'define' ( ( (lv_name1_2_0= RULE_ID ) ) | ( (lv_parameters_3_0= ruleParameter ) ) ) ( ( (lv_atons2_4_0= ruleAtom ) ) | ( (lv_parameters_5_0= ruleParameter ) ) | ( (lv_operation_6_0= ruleOperation ) ) ) otherlv_7= ')' ) ;
+    // InternalScheme.g:302:1: ruleDefine returns [EObject current=null] : (otherlv_0= '(' otherlv_1= 'define' ( ( (lv_name1_2_0= RULE_ID ) ) | ( (lv_parameters_3_0= ruleParameter ) ) ) ( ( (lv_atons2_4_0= ruleAtom ) ) | ( (lv_parameters_5_0= ruleParameter ) ) | ( (lv_operation_6_0= ruleOperation ) ) ) otherlv_7= ')' ) ;
     public final EObject ruleDefine() throws RecognitionException {
         EObject current = null;
 
@@ -772,21 +801,21 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalScheme.g:299:2: ( (otherlv_0= '(' otherlv_1= 'define' ( ( (lv_name1_2_0= RULE_ID ) ) | ( (lv_parameters_3_0= ruleParameter ) ) ) ( ( (lv_atons2_4_0= ruleAtom ) ) | ( (lv_parameters_5_0= ruleParameter ) ) | ( (lv_operation_6_0= ruleOperation ) ) ) otherlv_7= ')' ) )
-            // InternalScheme.g:300:2: (otherlv_0= '(' otherlv_1= 'define' ( ( (lv_name1_2_0= RULE_ID ) ) | ( (lv_parameters_3_0= ruleParameter ) ) ) ( ( (lv_atons2_4_0= ruleAtom ) ) | ( (lv_parameters_5_0= ruleParameter ) ) | ( (lv_operation_6_0= ruleOperation ) ) ) otherlv_7= ')' )
+            // InternalScheme.g:308:2: ( (otherlv_0= '(' otherlv_1= 'define' ( ( (lv_name1_2_0= RULE_ID ) ) | ( (lv_parameters_3_0= ruleParameter ) ) ) ( ( (lv_atons2_4_0= ruleAtom ) ) | ( (lv_parameters_5_0= ruleParameter ) ) | ( (lv_operation_6_0= ruleOperation ) ) ) otherlv_7= ')' ) )
+            // InternalScheme.g:309:2: (otherlv_0= '(' otherlv_1= 'define' ( ( (lv_name1_2_0= RULE_ID ) ) | ( (lv_parameters_3_0= ruleParameter ) ) ) ( ( (lv_atons2_4_0= ruleAtom ) ) | ( (lv_parameters_5_0= ruleParameter ) ) | ( (lv_operation_6_0= ruleOperation ) ) ) otherlv_7= ')' )
             {
-            // InternalScheme.g:300:2: (otherlv_0= '(' otherlv_1= 'define' ( ( (lv_name1_2_0= RULE_ID ) ) | ( (lv_parameters_3_0= ruleParameter ) ) ) ( ( (lv_atons2_4_0= ruleAtom ) ) | ( (lv_parameters_5_0= ruleParameter ) ) | ( (lv_operation_6_0= ruleOperation ) ) ) otherlv_7= ')' )
-            // InternalScheme.g:301:3: otherlv_0= '(' otherlv_1= 'define' ( ( (lv_name1_2_0= RULE_ID ) ) | ( (lv_parameters_3_0= ruleParameter ) ) ) ( ( (lv_atons2_4_0= ruleAtom ) ) | ( (lv_parameters_5_0= ruleParameter ) ) | ( (lv_operation_6_0= ruleOperation ) ) ) otherlv_7= ')'
+            // InternalScheme.g:309:2: (otherlv_0= '(' otherlv_1= 'define' ( ( (lv_name1_2_0= RULE_ID ) ) | ( (lv_parameters_3_0= ruleParameter ) ) ) ( ( (lv_atons2_4_0= ruleAtom ) ) | ( (lv_parameters_5_0= ruleParameter ) ) | ( (lv_operation_6_0= ruleOperation ) ) ) otherlv_7= ')' )
+            // InternalScheme.g:310:3: otherlv_0= '(' otherlv_1= 'define' ( ( (lv_name1_2_0= RULE_ID ) ) | ( (lv_parameters_3_0= ruleParameter ) ) ) ( ( (lv_atons2_4_0= ruleAtom ) ) | ( (lv_parameters_5_0= ruleParameter ) ) | ( (lv_operation_6_0= ruleOperation ) ) ) otherlv_7= ')'
             {
             otherlv_0=(Token)match(input,12,FOLLOW_7); 
 
             			newLeafNode(otherlv_0, grammarAccess.getDefineAccess().getLeftParenthesisKeyword_0());
             		
-            otherlv_1=(Token)match(input,14,FOLLOW_8); 
+            otherlv_1=(Token)match(input,14,FOLLOW_6); 
 
             			newLeafNode(otherlv_1, grammarAccess.getDefineAccess().getDefineKeyword_1());
             		
-            // InternalScheme.g:309:3: ( ( (lv_name1_2_0= RULE_ID ) ) | ( (lv_parameters_3_0= ruleParameter ) ) )
+            // InternalScheme.g:318:3: ( ( (lv_name1_2_0= RULE_ID ) ) | ( (lv_parameters_3_0= ruleParameter ) ) )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -804,15 +833,15 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalScheme.g:310:4: ( (lv_name1_2_0= RULE_ID ) )
+                    // InternalScheme.g:319:4: ( (lv_name1_2_0= RULE_ID ) )
                     {
-                    // InternalScheme.g:310:4: ( (lv_name1_2_0= RULE_ID ) )
-                    // InternalScheme.g:311:5: (lv_name1_2_0= RULE_ID )
+                    // InternalScheme.g:319:4: ( (lv_name1_2_0= RULE_ID ) )
+                    // InternalScheme.g:320:5: (lv_name1_2_0= RULE_ID )
                     {
-                    // InternalScheme.g:311:5: (lv_name1_2_0= RULE_ID )
-                    // InternalScheme.g:312:6: lv_name1_2_0= RULE_ID
+                    // InternalScheme.g:320:5: (lv_name1_2_0= RULE_ID )
+                    // InternalScheme.g:321:6: lv_name1_2_0= RULE_ID
                     {
-                    lv_name1_2_0=(Token)match(input,RULE_ID,FOLLOW_5); 
+                    lv_name1_2_0=(Token)match(input,RULE_ID,FOLLOW_6); 
 
                     						newLeafNode(lv_name1_2_0, grammarAccess.getDefineAccess().getName1IDTerminalRuleCall_2_0_0());
                     					
@@ -836,18 +865,18 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalScheme.g:329:4: ( (lv_parameters_3_0= ruleParameter ) )
+                    // InternalScheme.g:338:4: ( (lv_parameters_3_0= ruleParameter ) )
                     {
-                    // InternalScheme.g:329:4: ( (lv_parameters_3_0= ruleParameter ) )
-                    // InternalScheme.g:330:5: (lv_parameters_3_0= ruleParameter )
+                    // InternalScheme.g:338:4: ( (lv_parameters_3_0= ruleParameter ) )
+                    // InternalScheme.g:339:5: (lv_parameters_3_0= ruleParameter )
                     {
-                    // InternalScheme.g:330:5: (lv_parameters_3_0= ruleParameter )
-                    // InternalScheme.g:331:6: lv_parameters_3_0= ruleParameter
+                    // InternalScheme.g:339:5: (lv_parameters_3_0= ruleParameter )
+                    // InternalScheme.g:340:6: lv_parameters_3_0= ruleParameter
                     {
 
                     						newCompositeNode(grammarAccess.getDefineAccess().getParametersParameterParserRuleCall_2_1_0());
                     					
-                    pushFollow(FOLLOW_5);
+                    pushFollow(FOLLOW_6);
                     lv_parameters_3_0=ruleParameter();
 
                     state._fsp--;
@@ -875,7 +904,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalScheme.g:349:3: ( ( (lv_atons2_4_0= ruleAtom ) ) | ( (lv_parameters_5_0= ruleParameter ) ) | ( (lv_operation_6_0= ruleOperation ) ) )
+            // InternalScheme.g:358:3: ( ( (lv_atons2_4_0= ruleAtom ) ) | ( (lv_parameters_5_0= ruleParameter ) ) | ( (lv_operation_6_0= ruleOperation ) ) )
             int alt6=3;
             int LA6_0 = input.LA(1);
 
@@ -906,18 +935,18 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalScheme.g:350:4: ( (lv_atons2_4_0= ruleAtom ) )
+                    // InternalScheme.g:359:4: ( (lv_atons2_4_0= ruleAtom ) )
                     {
-                    // InternalScheme.g:350:4: ( (lv_atons2_4_0= ruleAtom ) )
-                    // InternalScheme.g:351:5: (lv_atons2_4_0= ruleAtom )
+                    // InternalScheme.g:359:4: ( (lv_atons2_4_0= ruleAtom ) )
+                    // InternalScheme.g:360:5: (lv_atons2_4_0= ruleAtom )
                     {
-                    // InternalScheme.g:351:5: (lv_atons2_4_0= ruleAtom )
-                    // InternalScheme.g:352:6: lv_atons2_4_0= ruleAtom
+                    // InternalScheme.g:360:5: (lv_atons2_4_0= ruleAtom )
+                    // InternalScheme.g:361:6: lv_atons2_4_0= ruleAtom
                     {
 
                     						newCompositeNode(grammarAccess.getDefineAccess().getAtons2AtomParserRuleCall_3_0_0());
                     					
-                    pushFollow(FOLLOW_9);
+                    pushFollow(FOLLOW_8);
                     lv_atons2_4_0=ruleAtom();
 
                     state._fsp--;
@@ -943,18 +972,18 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalScheme.g:370:4: ( (lv_parameters_5_0= ruleParameter ) )
+                    // InternalScheme.g:379:4: ( (lv_parameters_5_0= ruleParameter ) )
                     {
-                    // InternalScheme.g:370:4: ( (lv_parameters_5_0= ruleParameter ) )
-                    // InternalScheme.g:371:5: (lv_parameters_5_0= ruleParameter )
+                    // InternalScheme.g:379:4: ( (lv_parameters_5_0= ruleParameter ) )
+                    // InternalScheme.g:380:5: (lv_parameters_5_0= ruleParameter )
                     {
-                    // InternalScheme.g:371:5: (lv_parameters_5_0= ruleParameter )
-                    // InternalScheme.g:372:6: lv_parameters_5_0= ruleParameter
+                    // InternalScheme.g:380:5: (lv_parameters_5_0= ruleParameter )
+                    // InternalScheme.g:381:6: lv_parameters_5_0= ruleParameter
                     {
 
                     						newCompositeNode(grammarAccess.getDefineAccess().getParametersParameterParserRuleCall_3_1_0());
                     					
-                    pushFollow(FOLLOW_9);
+                    pushFollow(FOLLOW_8);
                     lv_parameters_5_0=ruleParameter();
 
                     state._fsp--;
@@ -980,18 +1009,18 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalScheme.g:390:4: ( (lv_operation_6_0= ruleOperation ) )
+                    // InternalScheme.g:399:4: ( (lv_operation_6_0= ruleOperation ) )
                     {
-                    // InternalScheme.g:390:4: ( (lv_operation_6_0= ruleOperation ) )
-                    // InternalScheme.g:391:5: (lv_operation_6_0= ruleOperation )
+                    // InternalScheme.g:399:4: ( (lv_operation_6_0= ruleOperation ) )
+                    // InternalScheme.g:400:5: (lv_operation_6_0= ruleOperation )
                     {
-                    // InternalScheme.g:391:5: (lv_operation_6_0= ruleOperation )
-                    // InternalScheme.g:392:6: lv_operation_6_0= ruleOperation
+                    // InternalScheme.g:400:5: (lv_operation_6_0= ruleOperation )
+                    // InternalScheme.g:401:6: lv_operation_6_0= ruleOperation
                     {
 
                     						newCompositeNode(grammarAccess.getDefineAccess().getOperationOperationParserRuleCall_3_2_0());
                     					
-                    pushFollow(FOLLOW_9);
+                    pushFollow(FOLLOW_8);
                     lv_operation_6_0=ruleOperation();
 
                     state._fsp--;
@@ -1046,7 +1075,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleParameter"
-    // InternalScheme.g:418:1: entryRuleParameter returns [EObject current=null] : iv_ruleParameter= ruleParameter EOF ;
+    // InternalScheme.g:427:1: entryRuleParameter returns [EObject current=null] : iv_ruleParameter= ruleParameter EOF ;
     public final EObject entryRuleParameter() throws RecognitionException {
         EObject current = null;
 
@@ -1054,8 +1083,8 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalScheme.g:418:50: (iv_ruleParameter= ruleParameter EOF )
-            // InternalScheme.g:419:2: iv_ruleParameter= ruleParameter EOF
+            // InternalScheme.g:427:50: (iv_ruleParameter= ruleParameter EOF )
+            // InternalScheme.g:428:2: iv_ruleParameter= ruleParameter EOF
             {
              newCompositeNode(grammarAccess.getParameterRule()); 
             pushFollow(FOLLOW_1);
@@ -1082,7 +1111,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleParameter"
-    // InternalScheme.g:425:1: ruleParameter returns [EObject current=null] : (otherlv_0= '(' ( (lv_value_1_0= RULE_ID ) ) ( (lv_atom_2_0= ruleAtom ) ) otherlv_3= ')' ) ;
+    // InternalScheme.g:434:1: ruleParameter returns [EObject current=null] : (otherlv_0= '(' ( (lv_value_1_0= RULE_ID ) ) ( (lv_atom_2_0= ruleAtom ) ) otherlv_3= ')' ) ;
     public final EObject ruleParameter() throws RecognitionException {
         EObject current = null;
 
@@ -1096,21 +1125,21 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalScheme.g:431:2: ( (otherlv_0= '(' ( (lv_value_1_0= RULE_ID ) ) ( (lv_atom_2_0= ruleAtom ) ) otherlv_3= ')' ) )
-            // InternalScheme.g:432:2: (otherlv_0= '(' ( (lv_value_1_0= RULE_ID ) ) ( (lv_atom_2_0= ruleAtom ) ) otherlv_3= ')' )
+            // InternalScheme.g:440:2: ( (otherlv_0= '(' ( (lv_value_1_0= RULE_ID ) ) ( (lv_atom_2_0= ruleAtom ) ) otherlv_3= ')' ) )
+            // InternalScheme.g:441:2: (otherlv_0= '(' ( (lv_value_1_0= RULE_ID ) ) ( (lv_atom_2_0= ruleAtom ) ) otherlv_3= ')' )
             {
-            // InternalScheme.g:432:2: (otherlv_0= '(' ( (lv_value_1_0= RULE_ID ) ) ( (lv_atom_2_0= ruleAtom ) ) otherlv_3= ')' )
-            // InternalScheme.g:433:3: otherlv_0= '(' ( (lv_value_1_0= RULE_ID ) ) ( (lv_atom_2_0= ruleAtom ) ) otherlv_3= ')'
+            // InternalScheme.g:441:2: (otherlv_0= '(' ( (lv_value_1_0= RULE_ID ) ) ( (lv_atom_2_0= ruleAtom ) ) otherlv_3= ')' )
+            // InternalScheme.g:442:3: otherlv_0= '(' ( (lv_value_1_0= RULE_ID ) ) ( (lv_atom_2_0= ruleAtom ) ) otherlv_3= ')'
             {
-            otherlv_0=(Token)match(input,12,FOLLOW_10); 
+            otherlv_0=(Token)match(input,12,FOLLOW_9); 
 
             			newLeafNode(otherlv_0, grammarAccess.getParameterAccess().getLeftParenthesisKeyword_0());
             		
-            // InternalScheme.g:437:3: ( (lv_value_1_0= RULE_ID ) )
-            // InternalScheme.g:438:4: (lv_value_1_0= RULE_ID )
+            // InternalScheme.g:446:3: ( (lv_value_1_0= RULE_ID ) )
+            // InternalScheme.g:447:4: (lv_value_1_0= RULE_ID )
             {
-            // InternalScheme.g:438:4: (lv_value_1_0= RULE_ID )
-            // InternalScheme.g:439:5: lv_value_1_0= RULE_ID
+            // InternalScheme.g:447:4: (lv_value_1_0= RULE_ID )
+            // InternalScheme.g:448:5: lv_value_1_0= RULE_ID
             {
             lv_value_1_0=(Token)match(input,RULE_ID,FOLLOW_5); 
 
@@ -1132,16 +1161,16 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalScheme.g:455:3: ( (lv_atom_2_0= ruleAtom ) )
-            // InternalScheme.g:456:4: (lv_atom_2_0= ruleAtom )
+            // InternalScheme.g:464:3: ( (lv_atom_2_0= ruleAtom ) )
+            // InternalScheme.g:465:4: (lv_atom_2_0= ruleAtom )
             {
-            // InternalScheme.g:456:4: (lv_atom_2_0= ruleAtom )
-            // InternalScheme.g:457:5: lv_atom_2_0= ruleAtom
+            // InternalScheme.g:465:4: (lv_atom_2_0= ruleAtom )
+            // InternalScheme.g:466:5: lv_atom_2_0= ruleAtom
             {
 
             					newCompositeNode(grammarAccess.getParameterAccess().getAtomAtomParserRuleCall_2_0());
             				
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_8);
             lv_atom_2_0=ruleAtom();
 
             state._fsp--;
@@ -1190,7 +1219,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAtom"
-    // InternalScheme.g:482:1: entryRuleAtom returns [String current=null] : iv_ruleAtom= ruleAtom EOF ;
+    // InternalScheme.g:491:1: entryRuleAtom returns [String current=null] : iv_ruleAtom= ruleAtom EOF ;
     public final String entryRuleAtom() throws RecognitionException {
         String current = null;
 
@@ -1198,8 +1227,8 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalScheme.g:482:44: (iv_ruleAtom= ruleAtom EOF )
-            // InternalScheme.g:483:2: iv_ruleAtom= ruleAtom EOF
+            // InternalScheme.g:491:44: (iv_ruleAtom= ruleAtom EOF )
+            // InternalScheme.g:492:2: iv_ruleAtom= ruleAtom EOF
             {
              newCompositeNode(grammarAccess.getAtomRule()); 
             pushFollow(FOLLOW_1);
@@ -1226,7 +1255,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAtom"
-    // InternalScheme.g:489:1: ruleAtom returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | this_INT_1= RULE_INT ) ;
+    // InternalScheme.g:498:1: ruleAtom returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | this_INT_1= RULE_INT ) ;
     public final AntlrDatatypeRuleToken ruleAtom() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1237,10 +1266,10 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalScheme.g:495:2: ( (this_ID_0= RULE_ID | this_INT_1= RULE_INT ) )
-            // InternalScheme.g:496:2: (this_ID_0= RULE_ID | this_INT_1= RULE_INT )
+            // InternalScheme.g:504:2: ( (this_ID_0= RULE_ID | this_INT_1= RULE_INT ) )
+            // InternalScheme.g:505:2: (this_ID_0= RULE_ID | this_INT_1= RULE_INT )
             {
-            // InternalScheme.g:496:2: (this_ID_0= RULE_ID | this_INT_1= RULE_INT )
+            // InternalScheme.g:505:2: (this_ID_0= RULE_ID | this_INT_1= RULE_INT )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1258,7 +1287,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
             }
             switch (alt7) {
                 case 1 :
-                    // InternalScheme.g:497:3: this_ID_0= RULE_ID
+                    // InternalScheme.g:506:3: this_ID_0= RULE_ID
                     {
                     this_ID_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -1271,7 +1300,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalScheme.g:505:3: this_INT_1= RULE_INT
+                    // InternalScheme.g:514:3: this_INT_1= RULE_INT
                     {
                     this_INT_1=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -1316,8 +1345,7 @@ public class InternalSchemeParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001060L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000003060L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000001020L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000020L});
 
 }

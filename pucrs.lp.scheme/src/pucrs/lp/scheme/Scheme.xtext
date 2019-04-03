@@ -7,7 +7,7 @@ Model:
 	
 Command:
 	//'Hello' name=ID '!'
-	Operation | Define
+	Operation | Define | Parameter
 ;
 	
 Operation:

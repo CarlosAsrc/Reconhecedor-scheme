@@ -3,7 +3,6 @@
  */
 package pucrs.lp.scheme.scheme;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Parameter extends EObject
+public interface Parameter extends Command
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

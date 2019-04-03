@@ -129,6 +129,15 @@ ruleCommand returns [EObject current=null]
 			$current = $this_Define_1.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getCommandAccess().getParameterParserRuleCall_2());
+		}
+		this_Parameter_2=ruleParameter
+		{
+			$current = $this_Parameter_2.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
