@@ -21,7 +21,18 @@ class SchemeParsingTest {
 	@Test
 	def void loadModel() {
 		val result = parseHelper.parse('''
-			Hello Xtext!
+			(define x 10)
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void loadModel1() {
+		val result = parseHelper.parse('''
+			(define (f x)
+			  (+ x 1))
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
