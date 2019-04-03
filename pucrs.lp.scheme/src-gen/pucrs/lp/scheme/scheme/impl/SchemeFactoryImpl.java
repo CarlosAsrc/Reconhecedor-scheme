@@ -68,6 +68,9 @@ public class SchemeFactoryImpl extends EFactoryImpl implements SchemeFactory
       case SchemePackage.MODEL: return createModel();
       case SchemePackage.COMMAND: return createCommand();
       case SchemePackage.OPERATION: return createOperation();
+      case SchemePackage.SIMPLE_OPERATION: return createSimpleOperation();
+      case SchemePackage.DEFINE: return createDefine();
+      case SchemePackage.PARAMETER: return createParameter();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -104,6 +107,39 @@ public class SchemeFactoryImpl extends EFactoryImpl implements SchemeFactory
   {
     OperationImpl operation = new OperationImpl();
     return operation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SimpleOperation createSimpleOperation()
+  {
+    SimpleOperationImpl simpleOperation = new SimpleOperationImpl();
+    return simpleOperation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Define createDefine()
+  {
+    DefineImpl define = new DefineImpl();
+    return define;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Parameter createParameter()
+  {
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
   }
 
   /**

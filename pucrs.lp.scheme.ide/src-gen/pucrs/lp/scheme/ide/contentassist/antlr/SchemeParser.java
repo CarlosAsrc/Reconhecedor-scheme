@@ -31,11 +31,28 @@ public class SchemeParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SchemeGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getCommandAccess().getAlternatives(), "rule__Command__Alternatives");
+			builder.put(grammarAccess.getOperationAccess().getAlternatives_2(), "rule__Operation__Alternatives_2");
+			builder.put(grammarAccess.getDefineAccess().getAlternatives_2(), "rule__Define__Alternatives_2");
+			builder.put(grammarAccess.getDefineAccess().getAlternatives_3(), "rule__Define__Alternatives_3");
+			builder.put(grammarAccess.getAtomAccess().getAlternatives(), "rule__Atom__Alternatives");
 			builder.put(grammarAccess.getOperationAccess().getGroup(), "rule__Operation__Group__0");
+			builder.put(grammarAccess.getSimpleOperationAccess().getGroup(), "rule__SimpleOperation__Group__0");
+			builder.put(grammarAccess.getDefineAccess().getGroup(), "rule__Define__Group__0");
+			builder.put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
 			builder.put(grammarAccess.getModelAccess().getCommandsAssignment(), "rule__Model__CommandsAssignment");
 			builder.put(grammarAccess.getOperationAccess().getOperatorAssignment_1(), "rule__Operation__OperatorAssignment_1");
-			builder.put(grammarAccess.getOperationAccess().getValueAssignment_2(), "rule__Operation__ValueAssignment_2");
-			builder.put(grammarAccess.getOperationAccess().getValue2Assignment_3(), "rule__Operation__Value2Assignment_3");
+			builder.put(grammarAccess.getOperationAccess().getSimpleOperationAssignment_2_0(), "rule__Operation__SimpleOperationAssignment_2_0");
+			builder.put(grammarAccess.getOperationAccess().getAtomAssignment_2_1(), "rule__Operation__AtomAssignment_2_1");
+			builder.put(grammarAccess.getSimpleOperationAccess().getOperatorAssignment_1(), "rule__SimpleOperation__OperatorAssignment_1");
+			builder.put(grammarAccess.getSimpleOperationAccess().getValueAssignment_2(), "rule__SimpleOperation__ValueAssignment_2");
+			builder.put(grammarAccess.getDefineAccess().getName1Assignment_2_0(), "rule__Define__Name1Assignment_2_0");
+			builder.put(grammarAccess.getDefineAccess().getParametersAssignment_2_1(), "rule__Define__ParametersAssignment_2_1");
+			builder.put(grammarAccess.getDefineAccess().getAtons2Assignment_3_0(), "rule__Define__Atons2Assignment_3_0");
+			builder.put(grammarAccess.getDefineAccess().getParametersAssignment_3_1(), "rule__Define__ParametersAssignment_3_1");
+			builder.put(grammarAccess.getDefineAccess().getOperationAssignment_3_2(), "rule__Define__OperationAssignment_3_2");
+			builder.put(grammarAccess.getParameterAccess().getValueAssignment_1(), "rule__Parameter__ValueAssignment_1");
+			builder.put(grammarAccess.getParameterAccess().getAtomAssignment_2(), "rule__Parameter__AtomAssignment_2");
 		}
 	}
 	

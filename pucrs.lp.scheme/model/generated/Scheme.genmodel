@@ -12,8 +12,22 @@
     <genClasses ecoreClass="Scheme.ecore#//Command"/>
     <genClasses ecoreClass="Scheme.ecore#//Operation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheme.ecore#//Operation/operator"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheme.ecore#//Operation/value"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheme.ecore#//Operation/value2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Scheme.ecore#//Operation/simpleOperation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheme.ecore#//Operation/atom"/>
+    </genClasses>
+    <genClasses ecoreClass="Scheme.ecore#//SimpleOperation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheme.ecore#//SimpleOperation/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheme.ecore#//SimpleOperation/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Scheme.ecore#//Define">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheme.ecore#//Define/name1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Scheme.ecore#//Define/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheme.ecore#//Define/atons2"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Scheme.ecore#//Define/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="Scheme.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheme.ecore#//Parameter/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Scheme.ecore#//Parameter/atom"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

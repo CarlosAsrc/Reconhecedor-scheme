@@ -124,22 +124,22 @@ public interface SchemePackage extends EPackage
   int OPERATION__OPERATOR = COMMAND_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Simple Operation</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION__VALUE = COMMAND_FEATURE_COUNT + 1;
+  int OPERATION__SIMPLE_OPERATION = COMMAND_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Value2</b></em>' attribute.
+   * The feature id for the '<em><b>Atom</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION__VALUE2 = COMMAND_FEATURE_COUNT + 2;
+  int OPERATION__ATOM = COMMAND_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Operation</em>' class.
@@ -149,6 +149,135 @@ public interface SchemePackage extends EPackage
    * @ordered
    */
   int OPERATION_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link pucrs.lp.scheme.scheme.impl.SimpleOperationImpl <em>Simple Operation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see pucrs.lp.scheme.scheme.impl.SimpleOperationImpl
+   * @see pucrs.lp.scheme.scheme.impl.SchemePackageImpl#getSimpleOperation()
+   * @generated
+   */
+  int SIMPLE_OPERATION = 3;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_OPERATION__OPERATOR = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_OPERATION__VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Simple Operation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_OPERATION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link pucrs.lp.scheme.scheme.impl.DefineImpl <em>Define</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see pucrs.lp.scheme.scheme.impl.DefineImpl
+   * @see pucrs.lp.scheme.scheme.impl.SchemePackageImpl#getDefine()
+   * @generated
+   */
+  int DEFINE = 4;
+
+  /**
+   * The feature id for the '<em><b>Name1</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE__NAME1 = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE__PARAMETERS = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Atons2</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE__ATONS2 = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Operation</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE__OPERATION = COMMAND_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Define</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINE_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link pucrs.lp.scheme.scheme.impl.ParameterImpl <em>Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see pucrs.lp.scheme.scheme.impl.ParameterImpl
+   * @see pucrs.lp.scheme.scheme.impl.SchemePackageImpl#getParameter()
+   * @generated
+   */
+  int PARAMETER = 5;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__VALUE = 0;
+
+  /**
+   * The feature id for the '<em><b>Atom</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__ATOM = 1;
+
+  /**
+   * The number of structural features of the '<em>Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_FEATURE_COUNT = 2;
 
 
   /**
@@ -204,26 +333,144 @@ public interface SchemePackage extends EPackage
   EAttribute getOperation_Operator();
 
   /**
-   * Returns the meta object for the attribute '{@link pucrs.lp.scheme.scheme.Operation#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference list '{@link pucrs.lp.scheme.scheme.Operation#getSimpleOperation <em>Simple Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Simple Operation</em>'.
+   * @see pucrs.lp.scheme.scheme.Operation#getSimpleOperation()
+   * @see #getOperation()
+   * @generated
+   */
+  EReference getOperation_SimpleOperation();
+
+  /**
+   * Returns the meta object for the attribute list '{@link pucrs.lp.scheme.scheme.Operation#getAtom <em>Atom</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Atom</em>'.
+   * @see pucrs.lp.scheme.scheme.Operation#getAtom()
+   * @see #getOperation()
+   * @generated
+   */
+  EAttribute getOperation_Atom();
+
+  /**
+   * Returns the meta object for class '{@link pucrs.lp.scheme.scheme.SimpleOperation <em>Simple Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Simple Operation</em>'.
+   * @see pucrs.lp.scheme.scheme.SimpleOperation
+   * @generated
+   */
+  EClass getSimpleOperation();
+
+  /**
+   * Returns the meta object for the attribute list '{@link pucrs.lp.scheme.scheme.SimpleOperation#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Operator</em>'.
+   * @see pucrs.lp.scheme.scheme.SimpleOperation#getOperator()
+   * @see #getSimpleOperation()
+   * @generated
+   */
+  EAttribute getSimpleOperation_Operator();
+
+  /**
+   * Returns the meta object for the attribute list '{@link pucrs.lp.scheme.scheme.SimpleOperation#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Value</em>'.
+   * @see pucrs.lp.scheme.scheme.SimpleOperation#getValue()
+   * @see #getSimpleOperation()
+   * @generated
+   */
+  EAttribute getSimpleOperation_Value();
+
+  /**
+   * Returns the meta object for class '{@link pucrs.lp.scheme.scheme.Define <em>Define</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Define</em>'.
+   * @see pucrs.lp.scheme.scheme.Define
+   * @generated
+   */
+  EClass getDefine();
+
+  /**
+   * Returns the meta object for the attribute '{@link pucrs.lp.scheme.scheme.Define#getName1 <em>Name1</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name1</em>'.
+   * @see pucrs.lp.scheme.scheme.Define#getName1()
+   * @see #getDefine()
+   * @generated
+   */
+  EAttribute getDefine_Name1();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link pucrs.lp.scheme.scheme.Define#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see pucrs.lp.scheme.scheme.Define#getParameters()
+   * @see #getDefine()
+   * @generated
+   */
+  EReference getDefine_Parameters();
+
+  /**
+   * Returns the meta object for the attribute list '{@link pucrs.lp.scheme.scheme.Define#getAtons2 <em>Atons2</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Atons2</em>'.
+   * @see pucrs.lp.scheme.scheme.Define#getAtons2()
+   * @see #getDefine()
+   * @generated
+   */
+  EAttribute getDefine_Atons2();
+
+  /**
+   * Returns the meta object for the containment reference '{@link pucrs.lp.scheme.scheme.Define#getOperation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Operation</em>'.
+   * @see pucrs.lp.scheme.scheme.Define#getOperation()
+   * @see #getDefine()
+   * @generated
+   */
+  EReference getDefine_Operation();
+
+  /**
+   * Returns the meta object for class '{@link pucrs.lp.scheme.scheme.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parameter</em>'.
+   * @see pucrs.lp.scheme.scheme.Parameter
+   * @generated
+   */
+  EClass getParameter();
+
+  /**
+   * Returns the meta object for the attribute '{@link pucrs.lp.scheme.scheme.Parameter#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see pucrs.lp.scheme.scheme.Operation#getValue()
-   * @see #getOperation()
+   * @see pucrs.lp.scheme.scheme.Parameter#getValue()
+   * @see #getParameter()
    * @generated
    */
-  EAttribute getOperation_Value();
+  EAttribute getParameter_Value();
 
   /**
-   * Returns the meta object for the attribute '{@link pucrs.lp.scheme.scheme.Operation#getValue2 <em>Value2</em>}'.
+   * Returns the meta object for the attribute '{@link pucrs.lp.scheme.scheme.Parameter#getAtom <em>Atom</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value2</em>'.
-   * @see pucrs.lp.scheme.scheme.Operation#getValue2()
-   * @see #getOperation()
+   * @return the meta object for the attribute '<em>Atom</em>'.
+   * @see pucrs.lp.scheme.scheme.Parameter#getAtom()
+   * @see #getParameter()
    * @generated
    */
-  EAttribute getOperation_Value2();
+  EAttribute getParameter_Atom();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -295,20 +542,114 @@ public interface SchemePackage extends EPackage
     EAttribute OPERATION__OPERATOR = eINSTANCE.getOperation_Operator();
 
     /**
+     * The meta object literal for the '<em><b>Simple Operation</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OPERATION__SIMPLE_OPERATION = eINSTANCE.getOperation_SimpleOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Atom</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OPERATION__ATOM = eINSTANCE.getOperation_Atom();
+
+    /**
+     * The meta object literal for the '{@link pucrs.lp.scheme.scheme.impl.SimpleOperationImpl <em>Simple Operation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see pucrs.lp.scheme.scheme.impl.SimpleOperationImpl
+     * @see pucrs.lp.scheme.scheme.impl.SchemePackageImpl#getSimpleOperation()
+     * @generated
+     */
+    EClass SIMPLE_OPERATION = eINSTANCE.getSimpleOperation();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_OPERATION__OPERATOR = eINSTANCE.getSimpleOperation_Operator();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_OPERATION__VALUE = eINSTANCE.getSimpleOperation_Value();
+
+    /**
+     * The meta object literal for the '{@link pucrs.lp.scheme.scheme.impl.DefineImpl <em>Define</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see pucrs.lp.scheme.scheme.impl.DefineImpl
+     * @see pucrs.lp.scheme.scheme.impl.SchemePackageImpl#getDefine()
+     * @generated
+     */
+    EClass DEFINE = eINSTANCE.getDefine();
+
+    /**
+     * The meta object literal for the '<em><b>Name1</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEFINE__NAME1 = eINSTANCE.getDefine_Name1();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEFINE__PARAMETERS = eINSTANCE.getDefine_Parameters();
+
+    /**
+     * The meta object literal for the '<em><b>Atons2</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEFINE__ATONS2 = eINSTANCE.getDefine_Atons2();
+
+    /**
+     * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEFINE__OPERATION = eINSTANCE.getDefine_Operation();
+
+    /**
+     * The meta object literal for the '{@link pucrs.lp.scheme.scheme.impl.ParameterImpl <em>Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see pucrs.lp.scheme.scheme.impl.ParameterImpl
+     * @see pucrs.lp.scheme.scheme.impl.SchemePackageImpl#getParameter()
+     * @generated
+     */
+    EClass PARAMETER = eINSTANCE.getParameter();
+
+    /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OPERATION__VALUE = eINSTANCE.getOperation_Value();
+    EAttribute PARAMETER__VALUE = eINSTANCE.getParameter_Value();
 
     /**
-     * The meta object literal for the '<em><b>Value2</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Atom</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OPERATION__VALUE2 = eINSTANCE.getOperation_Value2();
+    EAttribute PARAMETER__ATOM = eINSTANCE.getParameter_Atom();
 
   }
 

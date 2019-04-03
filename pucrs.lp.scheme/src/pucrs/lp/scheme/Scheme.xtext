@@ -7,14 +7,33 @@ Model:
 	
 Command:
 	//'Hello' name=ID '!'
-	Operation
+	Operation | Define
 ;
 	
 Operation:
-	"(" (operator+=Operator) value=INT value2=INT ")"
-	//"(" "+" value=INT value2=INT ")"
+	"(" (operator+=Operator) ((simpleOperation+=SimpleOperation) | atom+=Atom)+ ")"
 ;
+	
+SimpleOperation:
+	"(" (operator+=Operator) (value+=Atom)+ ")"
+;
+
+
+
+Define:
+	"(" "define"  (name1=ID | parameters+=Parameter) (atons2+=Atom | parameters+=Parameter | operation=Operation) ")"
+;
+
+Parameter:
+	"(" value=ID atom=Atom ")"
+;
+
+
+
+Atom:
+	ID| INT;
+
 
 terminal Operator:
 	"+" | "-" | "/" | "*"
-;
+; 

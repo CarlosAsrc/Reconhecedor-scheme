@@ -5,18 +5,20 @@ package pucrs.lp.scheme.scheme.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import pucrs.lp.scheme.scheme.Operation;
 import pucrs.lp.scheme.scheme.SchemePackage;
+import pucrs.lp.scheme.scheme.SimpleOperation;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,8 +29,8 @@ import pucrs.lp.scheme.scheme.SchemePackage;
  * </p>
  * <ul>
  *   <li>{@link pucrs.lp.scheme.scheme.impl.OperationImpl#getOperator <em>Operator</em>}</li>
- *   <li>{@link pucrs.lp.scheme.scheme.impl.OperationImpl#getValue <em>Value</em>}</li>
- *   <li>{@link pucrs.lp.scheme.scheme.impl.OperationImpl#getValue2 <em>Value2</em>}</li>
+ *   <li>{@link pucrs.lp.scheme.scheme.impl.OperationImpl#getSimpleOperation <em>Simple Operation</em>}</li>
+ *   <li>{@link pucrs.lp.scheme.scheme.impl.OperationImpl#getAtom <em>Atom</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,44 +48,24 @@ public class OperationImpl extends CommandImpl implements Operation
   protected EList<String> operator;
 
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getSimpleOperation() <em>Simple Operation</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getSimpleOperation()
    * @generated
    * @ordered
    */
-  protected static final int VALUE_EDEFAULT = 0;
+  protected EList<SimpleOperation> simpleOperation;
 
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getAtom() <em>Atom</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getAtom()
    * @generated
    * @ordered
    */
-  protected int value = VALUE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getValue2() <em>Value2</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue2()
-   * @generated
-   * @ordered
-   */
-  protected static final int VALUE2_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getValue2() <em>Value2</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue2()
-   * @generated
-   * @ordered
-   */
-  protected int value2 = VALUE2_EDEFAULT;
+  protected EList<String> atom;
 
   /**
    * <!-- begin-user-doc -->
@@ -125,9 +107,13 @@ public class OperationImpl extends CommandImpl implements Operation
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getValue()
+  public EList<SimpleOperation> getSimpleOperation()
   {
-    return value;
+    if (simpleOperation == null)
+    {
+      simpleOperation = new EObjectContainmentEList<SimpleOperation>(SimpleOperation.class, this, SchemePackage.OPERATION__SIMPLE_OPERATION);
+    }
+    return simpleOperation;
   }
 
   /**
@@ -135,12 +121,13 @@ public class OperationImpl extends CommandImpl implements Operation
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(int newValue)
+  public EList<String> getAtom()
   {
-    int oldValue = value;
-    value = newValue;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.OPERATION__VALUE, oldValue, value));
+    if (atom == null)
+    {
+      atom = new EDataTypeEList<String>(String.class, this, SchemePackage.OPERATION__ATOM);
+    }
+    return atom;
   }
 
   /**
@@ -148,22 +135,15 @@ public class OperationImpl extends CommandImpl implements Operation
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getValue2()
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    return value2;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValue2(int newValue2)
-  {
-    int oldValue2 = value2;
-    value2 = newValue2;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.OPERATION__VALUE2, oldValue2, value2));
+    switch (featureID)
+    {
+      case SchemePackage.OPERATION__SIMPLE_OPERATION:
+        return ((InternalEList<?>)getSimpleOperation()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -178,10 +158,10 @@ public class OperationImpl extends CommandImpl implements Operation
     {
       case SchemePackage.OPERATION__OPERATOR:
         return getOperator();
-      case SchemePackage.OPERATION__VALUE:
-        return getValue();
-      case SchemePackage.OPERATION__VALUE2:
-        return getValue2();
+      case SchemePackage.OPERATION__SIMPLE_OPERATION:
+        return getSimpleOperation();
+      case SchemePackage.OPERATION__ATOM:
+        return getAtom();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -201,11 +181,13 @@ public class OperationImpl extends CommandImpl implements Operation
         getOperator().clear();
         getOperator().addAll((Collection<? extends String>)newValue);
         return;
-      case SchemePackage.OPERATION__VALUE:
-        setValue((Integer)newValue);
+      case SchemePackage.OPERATION__SIMPLE_OPERATION:
+        getSimpleOperation().clear();
+        getSimpleOperation().addAll((Collection<? extends SimpleOperation>)newValue);
         return;
-      case SchemePackage.OPERATION__VALUE2:
-        setValue2((Integer)newValue);
+      case SchemePackage.OPERATION__ATOM:
+        getAtom().clear();
+        getAtom().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -224,11 +206,11 @@ public class OperationImpl extends CommandImpl implements Operation
       case SchemePackage.OPERATION__OPERATOR:
         getOperator().clear();
         return;
-      case SchemePackage.OPERATION__VALUE:
-        setValue(VALUE_EDEFAULT);
+      case SchemePackage.OPERATION__SIMPLE_OPERATION:
+        getSimpleOperation().clear();
         return;
-      case SchemePackage.OPERATION__VALUE2:
-        setValue2(VALUE2_EDEFAULT);
+      case SchemePackage.OPERATION__ATOM:
+        getAtom().clear();
         return;
     }
     super.eUnset(featureID);
@@ -246,10 +228,10 @@ public class OperationImpl extends CommandImpl implements Operation
     {
       case SchemePackage.OPERATION__OPERATOR:
         return operator != null && !operator.isEmpty();
-      case SchemePackage.OPERATION__VALUE:
-        return value != VALUE_EDEFAULT;
-      case SchemePackage.OPERATION__VALUE2:
-        return value2 != VALUE2_EDEFAULT;
+      case SchemePackage.OPERATION__SIMPLE_OPERATION:
+        return simpleOperation != null && !simpleOperation.isEmpty();
+      case SchemePackage.OPERATION__ATOM:
+        return atom != null && !atom.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -267,10 +249,8 @@ public class OperationImpl extends CommandImpl implements Operation
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (operator: ");
     result.append(operator);
-    result.append(", value: ");
-    result.append(value);
-    result.append(", value2: ");
-    result.append(value2);
+    result.append(", atom: ");
+    result.append(atom);
     result.append(')');
     return result.toString();
   }

@@ -11,10 +11,14 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import pucrs.lp.scheme.scheme.Define;
 import pucrs.lp.scheme.scheme.Model;
 import pucrs.lp.scheme.scheme.Operation;
 import pucrs.lp.scheme.scheme.SchemePackage;
+import pucrs.lp.scheme.scheme.SimpleOperation;
 import pucrs.lp.scheme.services.SchemeGrammarAccess;
 
 @SuppressWarnings("all")
@@ -31,16 +35,38 @@ public class SchemeSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == SchemePackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case SchemePackage.DEFINE:
+				sequence_Define(context, (Define) semanticObject); 
+				return; 
 			case SchemePackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
 			case SchemePackage.OPERATION:
 				sequence_Operation(context, (Operation) semanticObject); 
 				return; 
+			case SchemePackage.PARAMETER:
+				sequence_Parameter(context, (pucrs.lp.scheme.scheme.Parameter) semanticObject); 
+				return; 
+			case SchemePackage.SIMPLE_OPERATION:
+				sequence_SimpleOperation(context, (SimpleOperation) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     Command returns Define
+	 *     Define returns Define
+	 *
+	 * Constraint:
+	 *     ((name1=ID | parameters+=Parameter) (atons2+=Atom | parameters+=Parameter | operation=Operation))
+	 */
+	protected void sequence_Define(ISerializationContext context, Define semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -60,9 +86,42 @@ public class SchemeSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Operation returns Operation
 	 *
 	 * Constraint:
-	 *     (operator+=Operator value=INT value2=INT)
+	 *     (operator+=Operator (simpleOperation+=SimpleOperation | atom+=Atom)+)
 	 */
 	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Parameter returns Parameter
+	 *
+	 * Constraint:
+	 *     (value=ID atom=Atom)
+	 */
+	protected void sequence_Parameter(ISerializationContext context, pucrs.lp.scheme.scheme.Parameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SchemePackage.Literals.PARAMETER__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SchemePackage.Literals.PARAMETER__VALUE));
+			if (transientValues.isValueTransient(semanticObject, SchemePackage.Literals.PARAMETER__ATOM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SchemePackage.Literals.PARAMETER__ATOM));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getParameterAccess().getValueIDTerminalRuleCall_1_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getParameterAccess().getAtomAtomParserRuleCall_2_0(), semanticObject.getAtom());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SimpleOperation returns SimpleOperation
+	 *
+	 * Constraint:
+	 *     (operator+=Operator value+=Atom+)
+	 */
+	protected void sequence_SimpleOperation(ISerializationContext context, SimpleOperation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -11,10 +11,13 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import pucrs.lp.scheme.scheme.Command;
+import pucrs.lp.scheme.scheme.Define;
 import pucrs.lp.scheme.scheme.Model;
 import pucrs.lp.scheme.scheme.Operation;
+import pucrs.lp.scheme.scheme.Parameter;
 import pucrs.lp.scheme.scheme.SchemeFactory;
 import pucrs.lp.scheme.scheme.SchemePackage;
+import pucrs.lp.scheme.scheme.SimpleOperation;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,6 +47,27 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * @generated
    */
   private EClass operationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass simpleOperationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass defineEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parameterEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -163,9 +187,9 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getOperation_Value()
+  public EReference getOperation_SimpleOperation()
   {
-    return (EAttribute)operationEClass.getEStructuralFeatures().get(1);
+    return (EReference)operationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -173,9 +197,119 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getOperation_Value2()
+  public EAttribute getOperation_Atom()
   {
     return (EAttribute)operationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSimpleOperation()
+  {
+    return simpleOperationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSimpleOperation_Operator()
+  {
+    return (EAttribute)simpleOperationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSimpleOperation_Value()
+  {
+    return (EAttribute)simpleOperationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDefine()
+  {
+    return defineEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDefine_Name1()
+  {
+    return (EAttribute)defineEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDefine_Parameters()
+  {
+    return (EReference)defineEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDefine_Atons2()
+  {
+    return (EAttribute)defineEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDefine_Operation()
+  {
+    return (EReference)defineEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getParameter()
+  {
+    return parameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getParameter_Value()
+  {
+    return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getParameter_Atom()
+  {
+    return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -215,8 +349,22 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
 
     operationEClass = createEClass(OPERATION);
     createEAttribute(operationEClass, OPERATION__OPERATOR);
-    createEAttribute(operationEClass, OPERATION__VALUE);
-    createEAttribute(operationEClass, OPERATION__VALUE2);
+    createEReference(operationEClass, OPERATION__SIMPLE_OPERATION);
+    createEAttribute(operationEClass, OPERATION__ATOM);
+
+    simpleOperationEClass = createEClass(SIMPLE_OPERATION);
+    createEAttribute(simpleOperationEClass, SIMPLE_OPERATION__OPERATOR);
+    createEAttribute(simpleOperationEClass, SIMPLE_OPERATION__VALUE);
+
+    defineEClass = createEClass(DEFINE);
+    createEAttribute(defineEClass, DEFINE__NAME1);
+    createEReference(defineEClass, DEFINE__PARAMETERS);
+    createEAttribute(defineEClass, DEFINE__ATONS2);
+    createEReference(defineEClass, DEFINE__OPERATION);
+
+    parameterEClass = createEClass(PARAMETER);
+    createEAttribute(parameterEClass, PARAMETER__VALUE);
+    createEAttribute(parameterEClass, PARAMETER__ATOM);
   }
 
   /**
@@ -249,6 +397,7 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
 
     // Add supertypes to classes
     operationEClass.getESuperTypes().add(this.getCommand());
+    defineEClass.getESuperTypes().add(this.getCommand());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -258,8 +407,22 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
 
     initEClass(operationEClass, Operation.class, "Operation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOperation_Operator(), ecorePackage.getEString(), "operator", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOperation_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getOperation_Value2(), ecorePackage.getEInt(), "value2", null, 0, 1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getOperation_SimpleOperation(), this.getSimpleOperation(), null, "simpleOperation", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOperation_Atom(), ecorePackage.getEString(), "atom", null, 0, -1, Operation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(simpleOperationEClass, SimpleOperation.class, "SimpleOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSimpleOperation_Operator(), ecorePackage.getEString(), "operator", null, 0, -1, SimpleOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSimpleOperation_Value(), ecorePackage.getEString(), "value", null, 0, -1, SimpleOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(defineEClass, Define.class, "Define", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDefine_Name1(), ecorePackage.getEString(), "name1", null, 0, 1, Define.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefine_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Define.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDefine_Atons2(), ecorePackage.getEString(), "atons2", null, 0, -1, Define.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDefine_Operation(), this.getOperation(), null, "operation", null, 0, 1, Define.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getParameter_Atom(), ecorePackage.getEString(), "atom", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
