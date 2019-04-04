@@ -5,11 +5,11 @@ generate scheme "http://www.lp.pucrs/scheme/Scheme"
 Model:
 	commands+=Command*;
 Command:
-	Operation | Define | Parameter | Conditional | value=INT
+	Operation | Define | Parameter | Conditional | atom=Atom
 ;
 	
 Operation:
-	"(" (operator+=Operator) ((simpleOperation+=SimpleOperation) | atom+=Atom)+ ")"
+	"(" (operator+=Operator) ((simpleOperation+=SimpleOperation) | atom2+=Atom)+ ")"
 ;
 	
 SimpleOperation:
@@ -17,11 +17,11 @@ SimpleOperation:
 ;
 
 Define:
-	"(" "define"  (name1=ID | parameters+=Parameter) (atons2+=Atom | parameters+=Parameter | operation=Operation) ")"
+	"(" "define"  (name1=ID | parameters+=Parameter) command=Command ")"
 ;
 
 Conditional:
-	'(' 'if' '(' '=' (at+=Atom) value2=INT ')' value3=INT ')'?
+	'(' 'if' '(' '=' (at+=Atom) value2=INT ')' (commands+=Command)+ ')'?
 ;
 
 Parameter:

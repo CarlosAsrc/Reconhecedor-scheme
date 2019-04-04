@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link pucrs.lp.scheme.scheme.Operation#getOperator <em>Operator</em>}</li>
  *   <li>{@link pucrs.lp.scheme.scheme.Operation#getSimpleOperation <em>Simple Operation</em>}</li>
- *   <li>{@link pucrs.lp.scheme.scheme.Operation#getAtom <em>Atom</em>}</li>
+ *   <li>{@link pucrs.lp.scheme.scheme.Operation#getAtom2 <em>Atom2</em>}</li>
  * </ul>
  *
  * @see pucrs.lp.scheme.scheme.SchemePackage#getOperation()
@@ -58,19 +58,19 @@ public interface Operation extends Command
   EList<SimpleOperation> getSimpleOperation();
 
   /**
-   * Returns the value of the '<em><b>Atom</b></em>' attribute list.
+   * Returns the value of the '<em><b>Atom2</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Atom</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Atom2</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Atom</em>' attribute list.
-   * @see pucrs.lp.scheme.scheme.SchemePackage#getOperation_Atom()
+   * @return the value of the '<em>Atom2</em>' attribute list.
+   * @see pucrs.lp.scheme.scheme.SchemePackage#getOperation_Atom2()
    * @model unique="false"
    * @generated
    */
-  EList<String> getAtom();
+  EList<String> getAtom2();
 
 } // Operation

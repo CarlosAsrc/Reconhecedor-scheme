@@ -96,13 +96,13 @@ public interface SchemePackage extends EPackage
   int COMMAND = 1;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Atom</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMAND__VALUE = 0;
+  int COMMAND__ATOM = 0;
 
   /**
    * The number of structural features of the '<em>Command</em>' class.
@@ -124,13 +124,13 @@ public interface SchemePackage extends EPackage
   int OPERATION = 2;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Atom</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION__VALUE = COMMAND__VALUE;
+  int OPERATION__ATOM = COMMAND__ATOM;
 
   /**
    * The feature id for the '<em><b>Operator</b></em>' attribute list.
@@ -151,13 +151,13 @@ public interface SchemePackage extends EPackage
   int OPERATION__SIMPLE_OPERATION = COMMAND_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Atom</b></em>' attribute list.
+   * The feature id for the '<em><b>Atom2</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OPERATION__ATOM = COMMAND_FEATURE_COUNT + 2;
+  int OPERATION__ATOM2 = COMMAND_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Operation</em>' class.
@@ -216,13 +216,13 @@ public interface SchemePackage extends EPackage
   int DEFINE = 4;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Atom</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEFINE__VALUE = COMMAND__VALUE;
+  int DEFINE__ATOM = COMMAND__ATOM;
 
   /**
    * The feature id for the '<em><b>Name1</b></em>' attribute.
@@ -243,22 +243,13 @@ public interface SchemePackage extends EPackage
   int DEFINE__PARAMETERS = COMMAND_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Atons2</b></em>' attribute list.
+   * The feature id for the '<em><b>Command</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEFINE__ATONS2 = COMMAND_FEATURE_COUNT + 2;
-
-  /**
-   * The feature id for the '<em><b>Operation</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DEFINE__OPERATION = COMMAND_FEATURE_COUNT + 3;
+  int DEFINE__COMMAND = COMMAND_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Define</em>' class.
@@ -267,7 +258,7 @@ public interface SchemePackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEFINE_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 4;
+  int DEFINE_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link pucrs.lp.scheme.scheme.impl.ConditionalImpl <em>Conditional</em>}' class.
@@ -280,13 +271,13 @@ public interface SchemePackage extends EPackage
   int CONDITIONAL = 5;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Atom</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL__VALUE = COMMAND__VALUE;
+  int CONDITIONAL__ATOM = COMMAND__ATOM;
 
   /**
    * The feature id for the '<em><b>At</b></em>' attribute list.
@@ -307,13 +298,13 @@ public interface SchemePackage extends EPackage
   int CONDITIONAL__VALUE2 = COMMAND_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Value3</b></em>' attribute.
+   * The feature id for the '<em><b>Commands</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITIONAL__VALUE3 = COMMAND_FEATURE_COUNT + 2;
+  int CONDITIONAL__COMMANDS = COMMAND_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Conditional</em>' class.
@@ -335,13 +326,13 @@ public interface SchemePackage extends EPackage
   int PARAMETER = 6;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Atom</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER__VALUE = COMMAND__VALUE;
+  int PARAMETER__ATOM = COMMAND__ATOM;
 
   /**
    * The feature id for the '<em><b>N</b></em>' attribute.
@@ -353,22 +344,13 @@ public interface SchemePackage extends EPackage
   int PARAMETER__N = COMMAND_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Atom</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__ATOM = COMMAND_FEATURE_COUNT + 1;
-
-  /**
    * The number of structural features of the '<em>Parameter</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+  int PARAMETER_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
 
 
   /**
@@ -403,15 +385,15 @@ public interface SchemePackage extends EPackage
   EClass getCommand();
 
   /**
-   * Returns the meta object for the attribute '{@link pucrs.lp.scheme.scheme.Command#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link pucrs.lp.scheme.scheme.Command#getAtom <em>Atom</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see pucrs.lp.scheme.scheme.Command#getValue()
+   * @return the meta object for the attribute '<em>Atom</em>'.
+   * @see pucrs.lp.scheme.scheme.Command#getAtom()
    * @see #getCommand()
    * @generated
    */
-  EAttribute getCommand_Value();
+  EAttribute getCommand_Atom();
 
   /**
    * Returns the meta object for class '{@link pucrs.lp.scheme.scheme.Operation <em>Operation</em>}'.
@@ -446,15 +428,15 @@ public interface SchemePackage extends EPackage
   EReference getOperation_SimpleOperation();
 
   /**
-   * Returns the meta object for the attribute list '{@link pucrs.lp.scheme.scheme.Operation#getAtom <em>Atom</em>}'.
+   * Returns the meta object for the attribute list '{@link pucrs.lp.scheme.scheme.Operation#getAtom2 <em>Atom2</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Atom</em>'.
-   * @see pucrs.lp.scheme.scheme.Operation#getAtom()
+   * @return the meta object for the attribute list '<em>Atom2</em>'.
+   * @see pucrs.lp.scheme.scheme.Operation#getAtom2()
    * @see #getOperation()
    * @generated
    */
-  EAttribute getOperation_Atom();
+  EAttribute getOperation_Atom2();
 
   /**
    * Returns the meta object for class '{@link pucrs.lp.scheme.scheme.SimpleOperation <em>Simple Operation</em>}'.
@@ -521,26 +503,15 @@ public interface SchemePackage extends EPackage
   EReference getDefine_Parameters();
 
   /**
-   * Returns the meta object for the attribute list '{@link pucrs.lp.scheme.scheme.Define#getAtons2 <em>Atons2</em>}'.
+   * Returns the meta object for the containment reference '{@link pucrs.lp.scheme.scheme.Define#getCommand <em>Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Atons2</em>'.
-   * @see pucrs.lp.scheme.scheme.Define#getAtons2()
+   * @return the meta object for the containment reference '<em>Command</em>'.
+   * @see pucrs.lp.scheme.scheme.Define#getCommand()
    * @see #getDefine()
    * @generated
    */
-  EAttribute getDefine_Atons2();
-
-  /**
-   * Returns the meta object for the containment reference '{@link pucrs.lp.scheme.scheme.Define#getOperation <em>Operation</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Operation</em>'.
-   * @see pucrs.lp.scheme.scheme.Define#getOperation()
-   * @see #getDefine()
-   * @generated
-   */
-  EReference getDefine_Operation();
+  EReference getDefine_Command();
 
   /**
    * Returns the meta object for class '{@link pucrs.lp.scheme.scheme.Conditional <em>Conditional</em>}'.
@@ -575,15 +546,15 @@ public interface SchemePackage extends EPackage
   EAttribute getConditional_Value2();
 
   /**
-   * Returns the meta object for the attribute '{@link pucrs.lp.scheme.scheme.Conditional#getValue3 <em>Value3</em>}'.
+   * Returns the meta object for the containment reference list '{@link pucrs.lp.scheme.scheme.Conditional#getCommands <em>Commands</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value3</em>'.
-   * @see pucrs.lp.scheme.scheme.Conditional#getValue3()
+   * @return the meta object for the containment reference list '<em>Commands</em>'.
+   * @see pucrs.lp.scheme.scheme.Conditional#getCommands()
    * @see #getConditional()
    * @generated
    */
-  EAttribute getConditional_Value3();
+  EReference getConditional_Commands();
 
   /**
    * Returns the meta object for class '{@link pucrs.lp.scheme.scheme.Parameter <em>Parameter</em>}'.
@@ -605,17 +576,6 @@ public interface SchemePackage extends EPackage
    * @generated
    */
   EAttribute getParameter_N();
-
-  /**
-   * Returns the meta object for the attribute '{@link pucrs.lp.scheme.scheme.Parameter#getAtom <em>Atom</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Atom</em>'.
-   * @see pucrs.lp.scheme.scheme.Parameter#getAtom()
-   * @see #getParameter()
-   * @generated
-   */
-  EAttribute getParameter_Atom();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -669,12 +629,12 @@ public interface SchemePackage extends EPackage
     EClass COMMAND = eINSTANCE.getCommand();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Atom</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute COMMAND__VALUE = eINSTANCE.getCommand_Value();
+    EAttribute COMMAND__ATOM = eINSTANCE.getCommand_Atom();
 
     /**
      * The meta object literal for the '{@link pucrs.lp.scheme.scheme.impl.OperationImpl <em>Operation</em>}' class.
@@ -703,12 +663,12 @@ public interface SchemePackage extends EPackage
     EReference OPERATION__SIMPLE_OPERATION = eINSTANCE.getOperation_SimpleOperation();
 
     /**
-     * The meta object literal for the '<em><b>Atom</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Atom2</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute OPERATION__ATOM = eINSTANCE.getOperation_Atom();
+    EAttribute OPERATION__ATOM2 = eINSTANCE.getOperation_Atom2();
 
     /**
      * The meta object literal for the '{@link pucrs.lp.scheme.scheme.impl.SimpleOperationImpl <em>Simple Operation</em>}' class.
@@ -763,20 +723,12 @@ public interface SchemePackage extends EPackage
     EReference DEFINE__PARAMETERS = eINSTANCE.getDefine_Parameters();
 
     /**
-     * The meta object literal for the '<em><b>Atons2</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Command</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DEFINE__ATONS2 = eINSTANCE.getDefine_Atons2();
-
-    /**
-     * The meta object literal for the '<em><b>Operation</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DEFINE__OPERATION = eINSTANCE.getDefine_Operation();
+    EReference DEFINE__COMMAND = eINSTANCE.getDefine_Command();
 
     /**
      * The meta object literal for the '{@link pucrs.lp.scheme.scheme.impl.ConditionalImpl <em>Conditional</em>}' class.
@@ -805,12 +757,12 @@ public interface SchemePackage extends EPackage
     EAttribute CONDITIONAL__VALUE2 = eINSTANCE.getConditional_Value2();
 
     /**
-     * The meta object literal for the '<em><b>Value3</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Commands</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONDITIONAL__VALUE3 = eINSTANCE.getConditional_Value3();
+    EReference CONDITIONAL__COMMANDS = eINSTANCE.getConditional_Commands();
 
     /**
      * The meta object literal for the '{@link pucrs.lp.scheme.scheme.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -829,14 +781,6 @@ public interface SchemePackage extends EPackage
      * @generated
      */
     EAttribute PARAMETER__N = eINSTANCE.getParameter_N();
-
-    /**
-     * The meta object literal for the '<em><b>Atom</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PARAMETER__ATOM = eINSTANCE.getParameter_Atom();
 
   }
 

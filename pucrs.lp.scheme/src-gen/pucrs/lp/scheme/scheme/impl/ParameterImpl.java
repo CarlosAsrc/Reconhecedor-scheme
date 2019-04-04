@@ -21,7 +21,6 @@ import pucrs.lp.scheme.scheme.SchemePackage;
  * </p>
  * <ul>
  *   <li>{@link pucrs.lp.scheme.scheme.impl.ParameterImpl#getN <em>N</em>}</li>
- *   <li>{@link pucrs.lp.scheme.scheme.impl.ParameterImpl#getAtom <em>Atom</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,26 +46,6 @@ public class ParameterImpl extends CommandImpl implements Parameter
    * @ordered
    */
   protected String n = N_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getAtom() <em>Atom</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAtom()
-   * @generated
-   * @ordered
-   */
-  protected static final String ATOM_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getAtom() <em>Atom</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAtom()
-   * @generated
-   * @ordered
-   */
-  protected String atom = ATOM_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -117,29 +96,6 @@ public class ParameterImpl extends CommandImpl implements Parameter
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getAtom()
-  {
-    return atom;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAtom(String newAtom)
-  {
-    String oldAtom = atom;
-    atom = newAtom;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.PARAMETER__ATOM, oldAtom, atom));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -147,8 +103,6 @@ public class ParameterImpl extends CommandImpl implements Parameter
     {
       case SchemePackage.PARAMETER__N:
         return getN();
-      case SchemePackage.PARAMETER__ATOM:
-        return getAtom();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -165,9 +119,6 @@ public class ParameterImpl extends CommandImpl implements Parameter
     {
       case SchemePackage.PARAMETER__N:
         setN((String)newValue);
-        return;
-      case SchemePackage.PARAMETER__ATOM:
-        setAtom((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -186,9 +137,6 @@ public class ParameterImpl extends CommandImpl implements Parameter
       case SchemePackage.PARAMETER__N:
         setN(N_EDEFAULT);
         return;
-      case SchemePackage.PARAMETER__ATOM:
-        setAtom(ATOM_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -205,8 +153,6 @@ public class ParameterImpl extends CommandImpl implements Parameter
     {
       case SchemePackage.PARAMETER__N:
         return N_EDEFAULT == null ? n != null : !N_EDEFAULT.equals(n);
-      case SchemePackage.PARAMETER__ATOM:
-        return ATOM_EDEFAULT == null ? atom != null : !ATOM_EDEFAULT.equals(atom);
     }
     return super.eIsSet(featureID);
   }
@@ -221,11 +167,9 @@ public class ParameterImpl extends CommandImpl implements Parameter
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
+    StringBuilder result = new StringBuilder(super.toString());
     result.append(" (n: ");
     result.append(n);
-    result.append(", atom: ");
-    result.append(atom);
     result.append(')');
     return result.toString();
   }

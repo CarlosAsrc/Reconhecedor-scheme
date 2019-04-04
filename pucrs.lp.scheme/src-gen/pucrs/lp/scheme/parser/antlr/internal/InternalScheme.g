@@ -150,19 +150,20 @@ ruleCommand returns [EObject current=null]
 		    |
 		(
 			(
-				lv_value_4_0=RULE_INT
 				{
-					newLeafNode(lv_value_4_0, grammarAccess.getCommandAccess().getValueINTTerminalRuleCall_4_0());
+					newCompositeNode(grammarAccess.getCommandAccess().getAtomAtomParserRuleCall_4_0());
 				}
+				lv_atom_4_0=ruleAtom
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getCommandRule());
+						$current = createModelElementForParent(grammarAccess.getCommandRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
-						"value",
-						lv_value_4_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"atom",
+						lv_atom_4_0,
+						"pucrs.lp.scheme.Scheme.Atom");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -231,17 +232,17 @@ ruleOperation returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getOperationAccess().getAtomAtomParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getOperationAccess().getAtom2AtomParserRuleCall_2_1_0());
 					}
-					lv_atom_3_0=ruleAtom
+					lv_atom2_3_0=ruleAtom
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getOperationRule());
 						}
 						add(
 							$current,
-							"atom",
-							lv_atom_3_0,
+							"atom2",
+							lv_atom2_3_0,
 							"pucrs.lp.scheme.Scheme.Atom");
 						afterParserOrEnumRuleCall();
 					}
@@ -385,68 +386,26 @@ ruleDefine returns [EObject current=null]
 		)
 		(
 			(
-				(
-					{
-						newCompositeNode(grammarAccess.getDefineAccess().getAtons2AtomParserRuleCall_3_0_0());
+				{
+					newCompositeNode(grammarAccess.getDefineAccess().getCommandCommandParserRuleCall_3_0());
+				}
+				lv_command_4_0=ruleCommand
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDefineRule());
 					}
-					lv_atons2_4_0=ruleAtom
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDefineRule());
-						}
-						add(
-							$current,
-							"atons2",
-							lv_atons2_4_0,
-							"pucrs.lp.scheme.Scheme.Atom");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getDefineAccess().getParametersParameterParserRuleCall_3_1_0());
-					}
-					lv_parameters_5_0=ruleParameter
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDefineRule());
-						}
-						add(
-							$current,
-							"parameters",
-							lv_parameters_5_0,
-							"pucrs.lp.scheme.Scheme.Parameter");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			    |
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getDefineAccess().getOperationOperationParserRuleCall_3_2_0());
-					}
-					lv_operation_6_0=ruleOperation
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDefineRule());
-						}
-						set(
-							$current,
-							"operation",
-							lv_operation_6_0,
-							"pucrs.lp.scheme.Scheme.Operation");
-						afterParserOrEnumRuleCall();
-					}
-				)
+					set(
+						$current,
+						"command",
+						lv_command_4_0,
+						"pucrs.lp.scheme.Scheme.Command");
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)
-		otherlv_7=')'
+		otherlv_5=')'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getDefineAccess().getRightParenthesisKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getDefineAccess().getRightParenthesisKeyword_4());
 		}
 	)
 ;
@@ -526,22 +485,23 @@ ruleConditional returns [EObject current=null]
 		}
 		(
 			(
-				lv_value3_7_0=RULE_INT
 				{
-					newLeafNode(lv_value3_7_0, grammarAccess.getConditionalAccess().getValue3INTTerminalRuleCall_7_0());
+					newCompositeNode(grammarAccess.getConditionalAccess().getCommandsCommandParserRuleCall_7_0());
 				}
+				lv_commands_7_0=ruleCommand
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getConditionalRule());
+						$current = createModelElementForParent(grammarAccess.getConditionalRule());
 					}
-					setWithLastConsumed(
+					add(
 						$current,
-						"value3",
-						lv_value3_7_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"commands",
+						lv_commands_7_0,
+						"pucrs.lp.scheme.Scheme.Command");
+					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)+
 		(
 			otherlv_8=')'
 			{

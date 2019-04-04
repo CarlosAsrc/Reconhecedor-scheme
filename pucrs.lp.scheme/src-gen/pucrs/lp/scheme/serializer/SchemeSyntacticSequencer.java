@@ -51,7 +51,7 @@ public class SchemeSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     ')'?
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     value3=INT (ambiguity) (rule end)
+	 *     commands+=Command (ambiguity) (rule end)
 	 */
 	protected void emit_Conditional_RightParenthesisKeyword_8_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);

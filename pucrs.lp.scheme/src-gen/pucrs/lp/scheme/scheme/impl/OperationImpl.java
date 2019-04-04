@@ -30,7 +30,7 @@ import pucrs.lp.scheme.scheme.SimpleOperation;
  * <ul>
  *   <li>{@link pucrs.lp.scheme.scheme.impl.OperationImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link pucrs.lp.scheme.scheme.impl.OperationImpl#getSimpleOperation <em>Simple Operation</em>}</li>
- *   <li>{@link pucrs.lp.scheme.scheme.impl.OperationImpl#getAtom <em>Atom</em>}</li>
+ *   <li>{@link pucrs.lp.scheme.scheme.impl.OperationImpl#getAtom2 <em>Atom2</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,14 +58,14 @@ public class OperationImpl extends CommandImpl implements Operation
   protected EList<SimpleOperation> simpleOperation;
 
   /**
-   * The cached value of the '{@link #getAtom() <em>Atom</em>}' attribute list.
+   * The cached value of the '{@link #getAtom2() <em>Atom2</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAtom()
+   * @see #getAtom2()
    * @generated
    * @ordered
    */
-  protected EList<String> atom;
+  protected EList<String> atom2;
 
   /**
    * <!-- begin-user-doc -->
@@ -121,13 +121,13 @@ public class OperationImpl extends CommandImpl implements Operation
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getAtom()
+  public EList<String> getAtom2()
   {
-    if (atom == null)
+    if (atom2 == null)
     {
-      atom = new EDataTypeEList<String>(String.class, this, SchemePackage.OPERATION__ATOM);
+      atom2 = new EDataTypeEList<String>(String.class, this, SchemePackage.OPERATION__ATOM2);
     }
-    return atom;
+    return atom2;
   }
 
   /**
@@ -160,8 +160,8 @@ public class OperationImpl extends CommandImpl implements Operation
         return getOperator();
       case SchemePackage.OPERATION__SIMPLE_OPERATION:
         return getSimpleOperation();
-      case SchemePackage.OPERATION__ATOM:
-        return getAtom();
+      case SchemePackage.OPERATION__ATOM2:
+        return getAtom2();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -185,9 +185,9 @@ public class OperationImpl extends CommandImpl implements Operation
         getSimpleOperation().clear();
         getSimpleOperation().addAll((Collection<? extends SimpleOperation>)newValue);
         return;
-      case SchemePackage.OPERATION__ATOM:
-        getAtom().clear();
-        getAtom().addAll((Collection<? extends String>)newValue);
+      case SchemePackage.OPERATION__ATOM2:
+        getAtom2().clear();
+        getAtom2().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -209,8 +209,8 @@ public class OperationImpl extends CommandImpl implements Operation
       case SchemePackage.OPERATION__SIMPLE_OPERATION:
         getSimpleOperation().clear();
         return;
-      case SchemePackage.OPERATION__ATOM:
-        getAtom().clear();
+      case SchemePackage.OPERATION__ATOM2:
+        getAtom2().clear();
         return;
     }
     super.eUnset(featureID);
@@ -230,8 +230,8 @@ public class OperationImpl extends CommandImpl implements Operation
         return operator != null && !operator.isEmpty();
       case SchemePackage.OPERATION__SIMPLE_OPERATION:
         return simpleOperation != null && !simpleOperation.isEmpty();
-      case SchemePackage.OPERATION__ATOM:
-        return atom != null && !atom.isEmpty();
+      case SchemePackage.OPERATION__ATOM2:
+        return atom2 != null && !atom2.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -246,11 +246,11 @@ public class OperationImpl extends CommandImpl implements Operation
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
+    StringBuilder result = new StringBuilder(super.toString());
     result.append(" (operator: ");
     result.append(operator);
-    result.append(", atom: ");
-    result.append(atom);
+    result.append(", atom2: ");
+    result.append(atom2);
     result.append(')');
     return result.toString();
   }

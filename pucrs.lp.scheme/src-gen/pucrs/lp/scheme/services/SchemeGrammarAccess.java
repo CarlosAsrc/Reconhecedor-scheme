@@ -44,14 +44,14 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDefineParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cParameterParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cConditionalParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final Assignment cValueAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
-		private final RuleCall cValueINTTerminalRuleCall_4_0 = (RuleCall)cValueAssignment_4.eContents().get(0);
+		private final Assignment cAtomAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
+		private final RuleCall cAtomAtomParserRuleCall_4_0 = (RuleCall)cAtomAssignment_4.eContents().get(0);
 		
 		//Command:
-		//	Operation | Define | Parameter | Conditional | value=INT;
+		//	Operation | Define | Parameter | Conditional | atom=Atom;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Operation | Define | Parameter | Conditional | value=INT
+		//Operation | Define | Parameter | Conditional | atom=Atom
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Operation
@@ -66,11 +66,11 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 		//Conditional
 		public RuleCall getConditionalParserRuleCall_3() { return cConditionalParserRuleCall_3; }
 		
-		//value=INT
-		public Assignment getValueAssignment_4() { return cValueAssignment_4; }
+		//atom=Atom
+		public Assignment getAtomAssignment_4() { return cAtomAssignment_4; }
 		
-		//INT
-		public RuleCall getValueINTTerminalRuleCall_4_0() { return cValueINTTerminalRuleCall_4_0; }
+		//Atom
+		public RuleCall getAtomAtomParserRuleCall_4_0() { return cAtomAtomParserRuleCall_4_0; }
 	}
 	public class OperationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "pucrs.lp.scheme.Scheme.Operation");
@@ -81,15 +81,15 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
 		private final Assignment cSimpleOperationAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
 		private final RuleCall cSimpleOperationSimpleOperationParserRuleCall_2_0_0 = (RuleCall)cSimpleOperationAssignment_2_0.eContents().get(0);
-		private final Assignment cAtomAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
-		private final RuleCall cAtomAtomParserRuleCall_2_1_0 = (RuleCall)cAtomAssignment_2_1.eContents().get(0);
+		private final Assignment cAtom2Assignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final RuleCall cAtom2AtomParserRuleCall_2_1_0 = (RuleCall)cAtom2Assignment_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//Operation:
-		//	"(" operator+=Operator (simpleOperation+=SimpleOperation | atom+=Atom)+ ")";
+		//	"(" operator+=Operator (simpleOperation+=SimpleOperation | atom2+=Atom)+ ")";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"(" operator+=Operator (simpleOperation+=SimpleOperation | atom+=Atom)+ ")"
+		//"(" operator+=Operator (simpleOperation+=SimpleOperation | atom2+=Atom)+ ")"
 		public Group getGroup() { return cGroup; }
 		
 		//"("
@@ -101,7 +101,7 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 		//Operator
 		public RuleCall getOperatorOperatorTerminalRuleCall_1_0() { return cOperatorOperatorTerminalRuleCall_1_0; }
 		
-		//(simpleOperation+=SimpleOperation | atom+=Atom)+
+		//(simpleOperation+=SimpleOperation | atom2+=Atom)+
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
 		//simpleOperation+=SimpleOperation
@@ -110,11 +110,11 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 		//SimpleOperation
 		public RuleCall getSimpleOperationSimpleOperationParserRuleCall_2_0_0() { return cSimpleOperationSimpleOperationParserRuleCall_2_0_0; }
 		
-		//atom+=Atom
-		public Assignment getAtomAssignment_2_1() { return cAtomAssignment_2_1; }
+		//atom2+=Atom
+		public Assignment getAtom2Assignment_2_1() { return cAtom2Assignment_2_1; }
 		
 		//Atom
-		public RuleCall getAtomAtomParserRuleCall_2_1_0() { return cAtomAtomParserRuleCall_2_1_0; }
+		public RuleCall getAtom2AtomParserRuleCall_2_1_0() { return cAtom2AtomParserRuleCall_2_1_0; }
 		
 		//")"
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -164,20 +164,15 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cName1IDTerminalRuleCall_2_0_0 = (RuleCall)cName1Assignment_2_0.eContents().get(0);
 		private final Assignment cParametersAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
 		private final RuleCall cParametersParameterParserRuleCall_2_1_0 = (RuleCall)cParametersAssignment_2_1.eContents().get(0);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Assignment cAtons2Assignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
-		private final RuleCall cAtons2AtomParserRuleCall_3_0_0 = (RuleCall)cAtons2Assignment_3_0.eContents().get(0);
-		private final Assignment cParametersAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
-		private final RuleCall cParametersParameterParserRuleCall_3_1_0 = (RuleCall)cParametersAssignment_3_1.eContents().get(0);
-		private final Assignment cOperationAssignment_3_2 = (Assignment)cAlternatives_3.eContents().get(2);
-		private final RuleCall cOperationOperationParserRuleCall_3_2_0 = (RuleCall)cOperationAssignment_3_2.eContents().get(0);
+		private final Assignment cCommandAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cCommandCommandParserRuleCall_3_0 = (RuleCall)cCommandAssignment_3.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Define:
-		//	"(" "define" (name1=ID | parameters+=Parameter) (atons2+=Atom | parameters+=Parameter | operation=Operation) ")";
+		//	"(" "define" (name1=ID | parameters+=Parameter) command=Command ")";
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"(" "define" (name1=ID | parameters+=Parameter) (atons2+=Atom | parameters+=Parameter | operation=Operation) ")"
+		//"(" "define" (name1=ID | parameters+=Parameter) command=Command ")"
 		public Group getGroup() { return cGroup; }
 		
 		//"("
@@ -201,26 +196,11 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 		//Parameter
 		public RuleCall getParametersParameterParserRuleCall_2_1_0() { return cParametersParameterParserRuleCall_2_1_0; }
 		
-		//atons2+=Atom | parameters+=Parameter | operation=Operation
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		//command=Command
+		public Assignment getCommandAssignment_3() { return cCommandAssignment_3; }
 		
-		//atons2+=Atom
-		public Assignment getAtons2Assignment_3_0() { return cAtons2Assignment_3_0; }
-		
-		//Atom
-		public RuleCall getAtons2AtomParserRuleCall_3_0_0() { return cAtons2AtomParserRuleCall_3_0_0; }
-		
-		//parameters+=Parameter
-		public Assignment getParametersAssignment_3_1() { return cParametersAssignment_3_1; }
-		
-		//Parameter
-		public RuleCall getParametersParameterParserRuleCall_3_1_0() { return cParametersParameterParserRuleCall_3_1_0; }
-		
-		//operation=Operation
-		public Assignment getOperationAssignment_3_2() { return cOperationAssignment_3_2; }
-		
-		//Operation
-		public RuleCall getOperationOperationParserRuleCall_3_2_0() { return cOperationOperationParserRuleCall_3_2_0; }
+		//Command
+		public RuleCall getCommandCommandParserRuleCall_3_0() { return cCommandCommandParserRuleCall_3_0; }
 		
 		//")"
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
@@ -237,15 +217,15 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cValue2Assignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cValue2INTTerminalRuleCall_5_0 = (RuleCall)cValue2Assignment_5.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cValue3Assignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cValue3INTTerminalRuleCall_7_0 = (RuleCall)cValue3Assignment_7.eContents().get(0);
+		private final Assignment cCommandsAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cCommandsCommandParserRuleCall_7_0 = (RuleCall)cCommandsAssignment_7.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Conditional:
-		//	'(' 'if' '(' '=' at+=Atom value2=INT ')' value3=INT ')'?;
+		//	'(' 'if' '(' '=' at+=Atom value2=INT ')' commands+=Command+ ')'?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' 'if' '(' '=' at+=Atom value2=INT ')' value3=INT ')'?
+		//'(' 'if' '(' '=' at+=Atom value2=INT ')' commands+=Command+ ')'?
 		public Group getGroup() { return cGroup; }
 		
 		//'('
@@ -275,11 +255,11 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 		
-		//value3=INT
-		public Assignment getValue3Assignment_7() { return cValue3Assignment_7; }
+		//commands+=Command+
+		public Assignment getCommandsAssignment_7() { return cCommandsAssignment_7; }
 		
-		//INT
-		public RuleCall getValue3INTTerminalRuleCall_7_0() { return cValue3INTTerminalRuleCall_7_0; }
+		//Command
+		public RuleCall getCommandsCommandParserRuleCall_7_0() { return cCommandsCommandParserRuleCall_7_0; }
 		
 		//')'?
 		public Keyword getRightParenthesisKeyword_8() { return cRightParenthesisKeyword_8; }
@@ -408,7 +388,7 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Command:
-	//	Operation | Define | Parameter | Conditional | value=INT;
+	//	Operation | Define | Parameter | Conditional | atom=Atom;
 	public CommandElements getCommandAccess() {
 		return pCommand;
 	}
@@ -418,7 +398,7 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Operation:
-	//	"(" operator+=Operator (simpleOperation+=SimpleOperation | atom+=Atom)+ ")";
+	//	"(" operator+=Operator (simpleOperation+=SimpleOperation | atom2+=Atom)+ ")";
 	public OperationElements getOperationAccess() {
 		return pOperation;
 	}
@@ -438,7 +418,7 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Define:
-	//	"(" "define" (name1=ID | parameters+=Parameter) (atons2+=Atom | parameters+=Parameter | operation=Operation) ")";
+	//	"(" "define" (name1=ID | parameters+=Parameter) command=Command ")";
 	public DefineElements getDefineAccess() {
 		return pDefine;
 	}
@@ -448,7 +428,7 @@ public class SchemeGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Conditional:
-	//	'(' 'if' '(' '=' at+=Atom value2=INT ')' value3=INT ')'?;
+	//	'(' 'if' '(' '=' at+=Atom value2=INT ')' commands+=Command+ ')'?;
 	public ConditionalElements getConditionalAccess() {
 		return pConditional;
 	}

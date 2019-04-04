@@ -34,7 +34,6 @@ public class SchemeParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCommandAccess().getAlternatives(), "rule__Command__Alternatives");
 			builder.put(grammarAccess.getOperationAccess().getAlternatives_2(), "rule__Operation__Alternatives_2");
 			builder.put(grammarAccess.getDefineAccess().getAlternatives_2(), "rule__Define__Alternatives_2");
-			builder.put(grammarAccess.getDefineAccess().getAlternatives_3(), "rule__Define__Alternatives_3");
 			builder.put(grammarAccess.getAtomAccess().getAlternatives(), "rule__Atom__Alternatives");
 			builder.put(grammarAccess.getOperationAccess().getGroup(), "rule__Operation__Group__0");
 			builder.put(grammarAccess.getSimpleOperationAccess().getGroup(), "rule__SimpleOperation__Group__0");
@@ -42,20 +41,18 @@ public class SchemeParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConditionalAccess().getGroup(), "rule__Conditional__Group__0");
 			builder.put(grammarAccess.getParameterAccess().getGroup(), "rule__Parameter__Group__0");
 			builder.put(grammarAccess.getModelAccess().getCommandsAssignment(), "rule__Model__CommandsAssignment");
-			builder.put(grammarAccess.getCommandAccess().getValueAssignment_4(), "rule__Command__ValueAssignment_4");
+			builder.put(grammarAccess.getCommandAccess().getAtomAssignment_4(), "rule__Command__AtomAssignment_4");
 			builder.put(grammarAccess.getOperationAccess().getOperatorAssignment_1(), "rule__Operation__OperatorAssignment_1");
 			builder.put(grammarAccess.getOperationAccess().getSimpleOperationAssignment_2_0(), "rule__Operation__SimpleOperationAssignment_2_0");
-			builder.put(grammarAccess.getOperationAccess().getAtomAssignment_2_1(), "rule__Operation__AtomAssignment_2_1");
+			builder.put(grammarAccess.getOperationAccess().getAtom2Assignment_2_1(), "rule__Operation__Atom2Assignment_2_1");
 			builder.put(grammarAccess.getSimpleOperationAccess().getOperatorAssignment_1(), "rule__SimpleOperation__OperatorAssignment_1");
 			builder.put(grammarAccess.getSimpleOperationAccess().getValueAssignment_2(), "rule__SimpleOperation__ValueAssignment_2");
 			builder.put(grammarAccess.getDefineAccess().getName1Assignment_2_0(), "rule__Define__Name1Assignment_2_0");
 			builder.put(grammarAccess.getDefineAccess().getParametersAssignment_2_1(), "rule__Define__ParametersAssignment_2_1");
-			builder.put(grammarAccess.getDefineAccess().getAtons2Assignment_3_0(), "rule__Define__Atons2Assignment_3_0");
-			builder.put(grammarAccess.getDefineAccess().getParametersAssignment_3_1(), "rule__Define__ParametersAssignment_3_1");
-			builder.put(grammarAccess.getDefineAccess().getOperationAssignment_3_2(), "rule__Define__OperationAssignment_3_2");
+			builder.put(grammarAccess.getDefineAccess().getCommandAssignment_3(), "rule__Define__CommandAssignment_3");
 			builder.put(grammarAccess.getConditionalAccess().getAtAssignment_4(), "rule__Conditional__AtAssignment_4");
 			builder.put(grammarAccess.getConditionalAccess().getValue2Assignment_5(), "rule__Conditional__Value2Assignment_5");
-			builder.put(grammarAccess.getConditionalAccess().getValue3Assignment_7(), "rule__Conditional__Value3Assignment_7");
+			builder.put(grammarAccess.getConditionalAccess().getCommandsAssignment_7(), "rule__Conditional__CommandsAssignment_7");
 			builder.put(grammarAccess.getParameterAccess().getNAssignment_1(), "rule__Parameter__NAssignment_1");
 			builder.put(grammarAccess.getParameterAccess().getAtomAssignment_2(), "rule__Parameter__AtomAssignment_2");
 		}

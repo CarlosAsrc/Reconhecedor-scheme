@@ -18,8 +18,20 @@ class SchemeParsingTest {
 	@Inject
 	ParseHelper<Model> parseHelper
 	
+	
+	
 	@Test
-	def void loadModel() {
+	def void operacaoAritmeticaTest() {
+		val result = parseHelper.parse('''
+			(+ 2 3)
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void defineTest() {
 		val result = parseHelper.parse('''
 			(define x 10)
 		''')
@@ -29,10 +41,39 @@ class SchemeParsingTest {
 	}
 	
 	@Test
-	def void loadModel1() {
+	def void defineComParametroTest() {
 		val result = parseHelper.parse('''
 			(define (f x)
 			  (+ x 1))
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void condicionalTest() {
+		val result = parseHelper.parse('''
+			(if (= 1 2) 
+				1 
+				0
+			)
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void condicionalAninhadoTest() {
+		val result = parseHelper.parse('''
+			(if (= 1 2) 
+				1 
+				(if (= 3 3) 
+					11 
+					00
+				)
+			)
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors

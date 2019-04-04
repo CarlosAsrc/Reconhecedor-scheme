@@ -21,7 +21,7 @@ import pucrs.lp.scheme.scheme.SchemePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link pucrs.lp.scheme.scheme.impl.CommandImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link pucrs.lp.scheme.scheme.impl.CommandImpl#getAtom <em>Atom</em>}</li>
  * </ul>
  *
  * @generated
@@ -29,24 +29,24 @@ import pucrs.lp.scheme.scheme.SchemePackage;
 public class CommandImpl extends MinimalEObjectImpl.Container implements Command
 {
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The default value of the '{@link #getAtom() <em>Atom</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getAtom()
    * @generated
    * @ordered
    */
-  protected static final int VALUE_EDEFAULT = 0;
+  protected static final String ATOM_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getAtom() <em>Atom</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getAtom()
    * @generated
    * @ordered
    */
-  protected int value = VALUE_EDEFAULT;
+  protected String atom = ATOM_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +74,9 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getValue()
+  public String getAtom()
   {
-    return value;
+    return atom;
   }
 
   /**
@@ -84,12 +84,12 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(int newValue)
+  public void setAtom(String newAtom)
   {
-    int oldValue = value;
-    value = newValue;
+    String oldAtom = atom;
+    atom = newAtom;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.COMMAND__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.COMMAND__ATOM, oldAtom, atom));
   }
 
   /**
@@ -102,8 +102,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
   {
     switch (featureID)
     {
-      case SchemePackage.COMMAND__VALUE:
-        return getValue();
+      case SchemePackage.COMMAND__ATOM:
+        return getAtom();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +118,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
   {
     switch (featureID)
     {
-      case SchemePackage.COMMAND__VALUE:
-        setValue((Integer)newValue);
+      case SchemePackage.COMMAND__ATOM:
+        setAtom((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +135,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
   {
     switch (featureID)
     {
-      case SchemePackage.COMMAND__VALUE:
-        setValue(VALUE_EDEFAULT);
+      case SchemePackage.COMMAND__ATOM:
+        setAtom(ATOM_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +152,8 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
   {
     switch (featureID)
     {
-      case SchemePackage.COMMAND__VALUE:
-        return value != VALUE_EDEFAULT;
+      case SchemePackage.COMMAND__ATOM:
+        return ATOM_EDEFAULT == null ? atom != null : !ATOM_EDEFAULT.equals(atom);
     }
     return super.eIsSet(featureID);
   }
@@ -168,9 +168,9 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (value: ");
-    result.append(value);
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (atom: ");
+    result.append(atom);
     result.append(')');
     return result.toString();
   }

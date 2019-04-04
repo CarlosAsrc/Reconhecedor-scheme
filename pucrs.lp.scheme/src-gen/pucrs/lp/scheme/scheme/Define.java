@@ -16,8 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link pucrs.lp.scheme.scheme.Define#getName1 <em>Name1</em>}</li>
  *   <li>{@link pucrs.lp.scheme.scheme.Define#getParameters <em>Parameters</em>}</li>
- *   <li>{@link pucrs.lp.scheme.scheme.Define#getAtons2 <em>Atons2</em>}</li>
- *   <li>{@link pucrs.lp.scheme.scheme.Define#getOperation <em>Operation</em>}</li>
+ *   <li>{@link pucrs.lp.scheme.scheme.Define#getCommand <em>Command</em>}</li>
  * </ul>
  *
  * @see pucrs.lp.scheme.scheme.SchemePackage#getDefine()
@@ -69,45 +68,29 @@ public interface Define extends Command
   EList<Parameter> getParameters();
 
   /**
-   * Returns the value of the '<em><b>Atons2</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Command</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Atons2</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Command</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Atons2</em>' attribute list.
-   * @see pucrs.lp.scheme.scheme.SchemePackage#getDefine_Atons2()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getAtons2();
-
-  /**
-   * Returns the value of the '<em><b>Operation</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Operation</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Operation</em>' containment reference.
-   * @see #setOperation(Operation)
-   * @see pucrs.lp.scheme.scheme.SchemePackage#getDefine_Operation()
+   * @return the value of the '<em>Command</em>' containment reference.
+   * @see #setCommand(Command)
+   * @see pucrs.lp.scheme.scheme.SchemePackage#getDefine_Command()
    * @model containment="true"
    * @generated
    */
-  Operation getOperation();
+  Command getCommand();
 
   /**
-   * Sets the value of the '{@link pucrs.lp.scheme.scheme.Define#getOperation <em>Operation</em>}' containment reference.
+   * Sets the value of the '{@link pucrs.lp.scheme.scheme.Define#getCommand <em>Command</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Operation</em>' containment reference.
-   * @see #getOperation()
+   * @param value the new value of the '<em>Command</em>' containment reference.
+   * @see #getCommand()
    * @generated
    */
-  void setOperation(Operation value);
+  void setCommand(Command value);
 
 } // Define

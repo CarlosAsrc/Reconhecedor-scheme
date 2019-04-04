@@ -15,12 +15,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import pucrs.lp.scheme.scheme.Command;
 import pucrs.lp.scheme.scheme.Define;
-import pucrs.lp.scheme.scheme.Operation;
 import pucrs.lp.scheme.scheme.Parameter;
 import pucrs.lp.scheme.scheme.SchemePackage;
 
@@ -34,8 +33,7 @@ import pucrs.lp.scheme.scheme.SchemePackage;
  * <ul>
  *   <li>{@link pucrs.lp.scheme.scheme.impl.DefineImpl#getName1 <em>Name1</em>}</li>
  *   <li>{@link pucrs.lp.scheme.scheme.impl.DefineImpl#getParameters <em>Parameters</em>}</li>
- *   <li>{@link pucrs.lp.scheme.scheme.impl.DefineImpl#getAtons2 <em>Atons2</em>}</li>
- *   <li>{@link pucrs.lp.scheme.scheme.impl.DefineImpl#getOperation <em>Operation</em>}</li>
+ *   <li>{@link pucrs.lp.scheme.scheme.impl.DefineImpl#getCommand <em>Command</em>}</li>
  * </ul>
  *
  * @generated
@@ -73,24 +71,14 @@ public class DefineImpl extends CommandImpl implements Define
   protected EList<Parameter> parameters;
 
   /**
-   * The cached value of the '{@link #getAtons2() <em>Atons2</em>}' attribute list.
+   * The cached value of the '{@link #getCommand() <em>Command</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAtons2()
+   * @see #getCommand()
    * @generated
    * @ordered
    */
-  protected EList<String> atons2;
-
-  /**
-   * The cached value of the '{@link #getOperation() <em>Operation</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOperation()
-   * @generated
-   * @ordered
-   */
-  protected Operation operation;
+  protected Command command;
 
   /**
    * <!-- begin-user-doc -->
@@ -155,13 +143,9 @@ public class DefineImpl extends CommandImpl implements Define
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getAtons2()
+  public Command getCommand()
   {
-    if (atons2 == null)
-    {
-      atons2 = new EDataTypeEList<String>(String.class, this, SchemePackage.DEFINE__ATONS2);
-    }
-    return atons2;
+    return command;
   }
 
   /**
@@ -169,23 +153,13 @@ public class DefineImpl extends CommandImpl implements Define
    * <!-- end-user-doc -->
    * @generated
    */
-  public Operation getOperation()
+  public NotificationChain basicSetCommand(Command newCommand, NotificationChain msgs)
   {
-    return operation;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetOperation(Operation newOperation, NotificationChain msgs)
-  {
-    Operation oldOperation = operation;
-    operation = newOperation;
+    Command oldCommand = command;
+    command = newCommand;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SchemePackage.DEFINE__OPERATION, oldOperation, newOperation);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SchemePackage.DEFINE__COMMAND, oldCommand, newCommand);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -196,20 +170,20 @@ public class DefineImpl extends CommandImpl implements Define
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOperation(Operation newOperation)
+  public void setCommand(Command newCommand)
   {
-    if (newOperation != operation)
+    if (newCommand != command)
     {
       NotificationChain msgs = null;
-      if (operation != null)
-        msgs = ((InternalEObject)operation).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SchemePackage.DEFINE__OPERATION, null, msgs);
-      if (newOperation != null)
-        msgs = ((InternalEObject)newOperation).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SchemePackage.DEFINE__OPERATION, null, msgs);
-      msgs = basicSetOperation(newOperation, msgs);
+      if (command != null)
+        msgs = ((InternalEObject)command).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SchemePackage.DEFINE__COMMAND, null, msgs);
+      if (newCommand != null)
+        msgs = ((InternalEObject)newCommand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SchemePackage.DEFINE__COMMAND, null, msgs);
+      msgs = basicSetCommand(newCommand, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.DEFINE__OPERATION, newOperation, newOperation));
+      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.DEFINE__COMMAND, newCommand, newCommand));
   }
 
   /**
@@ -224,8 +198,8 @@ public class DefineImpl extends CommandImpl implements Define
     {
       case SchemePackage.DEFINE__PARAMETERS:
         return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
-      case SchemePackage.DEFINE__OPERATION:
-        return basicSetOperation(null, msgs);
+      case SchemePackage.DEFINE__COMMAND:
+        return basicSetCommand(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -244,10 +218,8 @@ public class DefineImpl extends CommandImpl implements Define
         return getName1();
       case SchemePackage.DEFINE__PARAMETERS:
         return getParameters();
-      case SchemePackage.DEFINE__ATONS2:
-        return getAtons2();
-      case SchemePackage.DEFINE__OPERATION:
-        return getOperation();
+      case SchemePackage.DEFINE__COMMAND:
+        return getCommand();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -270,12 +242,8 @@ public class DefineImpl extends CommandImpl implements Define
         getParameters().clear();
         getParameters().addAll((Collection<? extends Parameter>)newValue);
         return;
-      case SchemePackage.DEFINE__ATONS2:
-        getAtons2().clear();
-        getAtons2().addAll((Collection<? extends String>)newValue);
-        return;
-      case SchemePackage.DEFINE__OPERATION:
-        setOperation((Operation)newValue);
+      case SchemePackage.DEFINE__COMMAND:
+        setCommand((Command)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -297,11 +265,8 @@ public class DefineImpl extends CommandImpl implements Define
       case SchemePackage.DEFINE__PARAMETERS:
         getParameters().clear();
         return;
-      case SchemePackage.DEFINE__ATONS2:
-        getAtons2().clear();
-        return;
-      case SchemePackage.DEFINE__OPERATION:
-        setOperation((Operation)null);
+      case SchemePackage.DEFINE__COMMAND:
+        setCommand((Command)null);
         return;
     }
     super.eUnset(featureID);
@@ -321,10 +286,8 @@ public class DefineImpl extends CommandImpl implements Define
         return NAME1_EDEFAULT == null ? name1 != null : !NAME1_EDEFAULT.equals(name1);
       case SchemePackage.DEFINE__PARAMETERS:
         return parameters != null && !parameters.isEmpty();
-      case SchemePackage.DEFINE__ATONS2:
-        return atons2 != null && !atons2.isEmpty();
-      case SchemePackage.DEFINE__OPERATION:
-        return operation != null;
+      case SchemePackage.DEFINE__COMMAND:
+        return command != null;
     }
     return super.eIsSet(featureID);
   }
@@ -339,11 +302,9 @@ public class DefineImpl extends CommandImpl implements Define
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
+    StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name1: ");
     result.append(name1);
-    result.append(", atons2: ");
-    result.append(atons2);
     result.append(')');
     return result.toString();
   }

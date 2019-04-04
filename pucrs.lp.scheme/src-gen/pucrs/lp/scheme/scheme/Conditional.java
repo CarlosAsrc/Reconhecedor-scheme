@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link pucrs.lp.scheme.scheme.Conditional#getAt <em>At</em>}</li>
  *   <li>{@link pucrs.lp.scheme.scheme.Conditional#getValue2 <em>Value2</em>}</li>
- *   <li>{@link pucrs.lp.scheme.scheme.Conditional#getValue3 <em>Value3</em>}</li>
+ *   <li>{@link pucrs.lp.scheme.scheme.Conditional#getCommands <em>Commands</em>}</li>
  * </ul>
  *
  * @see pucrs.lp.scheme.scheme.SchemePackage#getConditional()
@@ -68,29 +68,19 @@ public interface Conditional extends Command
   void setValue2(int value);
 
   /**
-   * Returns the value of the '<em><b>Value3</b></em>' attribute.
+   * Returns the value of the '<em><b>Commands</b></em>' containment reference list.
+   * The list contents are of type {@link pucrs.lp.scheme.scheme.Command}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value3</em>' attribute isn't clear,
+   * If the meaning of the '<em>Commands</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value3</em>' attribute.
-   * @see #setValue3(int)
-   * @see pucrs.lp.scheme.scheme.SchemePackage#getConditional_Value3()
-   * @model
+   * @return the value of the '<em>Commands</em>' containment reference list.
+   * @see pucrs.lp.scheme.scheme.SchemePackage#getConditional_Commands()
+   * @model containment="true"
    * @generated
    */
-  int getValue3();
-
-  /**
-   * Sets the value of the '{@link pucrs.lp.scheme.scheme.Conditional#getValue3 <em>Value3</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value3</em>' attribute.
-   * @see #getValue3()
-   * @generated
-   */
-  void setValue3(int value);
+  EList<Command> getCommands();
 
 } // Conditional

@@ -68,15 +68,15 @@ public class SchemeSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Command returns Command
 	 *
 	 * Constraint:
-	 *     value=INT
+	 *     atom=Atom
 	 */
 	protected void sequence_Command(ISerializationContext context, Command semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, SchemePackage.Literals.COMMAND__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SchemePackage.Literals.COMMAND__VALUE));
+			if (transientValues.isValueTransient(semanticObject, SchemePackage.Literals.COMMAND__ATOM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SchemePackage.Literals.COMMAND__ATOM));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCommandAccess().getValueINTTerminalRuleCall_4_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getCommandAccess().getAtomAtomParserRuleCall_4_0(), semanticObject.getAtom());
 		feeder.finish();
 	}
 	
@@ -87,7 +87,7 @@ public class SchemeSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Conditional returns Conditional
 	 *
 	 * Constraint:
-	 *     (at+=Atom value2=INT value3=INT)
+	 *     (at+=Atom value2=INT commands+=Command+)
 	 */
 	protected void sequence_Conditional(ISerializationContext context, Conditional semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -100,7 +100,7 @@ public class SchemeSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Define returns Define
 	 *
 	 * Constraint:
-	 *     ((name1=ID | parameters+=Parameter) (atons2+=Atom | parameters+=Parameter | operation=Operation))
+	 *     ((name1=ID | parameters+=Parameter) command=Command)
 	 */
 	protected void sequence_Define(ISerializationContext context, Define semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -125,7 +125,7 @@ public class SchemeSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Operation returns Operation
 	 *
 	 * Constraint:
-	 *     (operator+=Operator (simpleOperation+=SimpleOperation | atom+=Atom)+)
+	 *     (operator+=Operator (simpleOperation+=SimpleOperation | atom2+=Atom)+)
 	 */
 	protected void sequence_Operation(ISerializationContext context, Operation semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -144,8 +144,8 @@ public class SchemeSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, SchemePackage.Literals.PARAMETER__N) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SchemePackage.Literals.PARAMETER__N));
-			if (transientValues.isValueTransient(semanticObject, SchemePackage.Literals.PARAMETER__ATOM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SchemePackage.Literals.PARAMETER__ATOM));
+			if (transientValues.isValueTransient(semanticObject, SchemePackage.Literals.COMMAND__ATOM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SchemePackage.Literals.COMMAND__ATOM));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getParameterAccess().getNIDTerminalRuleCall_1_0(), semanticObject.getN());

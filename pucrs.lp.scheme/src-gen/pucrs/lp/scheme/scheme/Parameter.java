@@ -14,7 +14,6 @@ package pucrs.lp.scheme.scheme;
  * </p>
  * <ul>
  *   <li>{@link pucrs.lp.scheme.scheme.Parameter#getN <em>N</em>}</li>
- *   <li>{@link pucrs.lp.scheme.scheme.Parameter#getAtom <em>Atom</em>}</li>
  * </ul>
  *
  * @see pucrs.lp.scheme.scheme.SchemePackage#getParameter()
@@ -48,31 +47,5 @@ public interface Parameter extends Command
    * @generated
    */
   void setN(String value);
-
-  /**
-   * Returns the value of the '<em><b>Atom</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Atom</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Atom</em>' attribute.
-   * @see #setAtom(String)
-   * @see pucrs.lp.scheme.scheme.SchemePackage#getParameter_Atom()
-   * @model
-   * @generated
-   */
-  String getAtom();
-
-  /**
-   * Sets the value of the '{@link pucrs.lp.scheme.scheme.Parameter#getAtom <em>Atom</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Atom</em>' attribute.
-   * @see #getAtom()
-   * @generated
-   */
-  void setAtom(String value);
 
 } // Parameter

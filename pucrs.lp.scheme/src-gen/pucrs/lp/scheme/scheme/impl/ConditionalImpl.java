@@ -6,15 +6,20 @@ package pucrs.lp.scheme.scheme.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
+import pucrs.lp.scheme.scheme.Command;
 import pucrs.lp.scheme.scheme.Conditional;
 import pucrs.lp.scheme.scheme.SchemePackage;
 
@@ -28,7 +33,7 @@ import pucrs.lp.scheme.scheme.SchemePackage;
  * <ul>
  *   <li>{@link pucrs.lp.scheme.scheme.impl.ConditionalImpl#getAt <em>At</em>}</li>
  *   <li>{@link pucrs.lp.scheme.scheme.impl.ConditionalImpl#getValue2 <em>Value2</em>}</li>
- *   <li>{@link pucrs.lp.scheme.scheme.impl.ConditionalImpl#getValue3 <em>Value3</em>}</li>
+ *   <li>{@link pucrs.lp.scheme.scheme.impl.ConditionalImpl#getCommands <em>Commands</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,24 +71,14 @@ public class ConditionalImpl extends CommandImpl implements Conditional
   protected int value2 = VALUE2_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getValue3() <em>Value3</em>}' attribute.
+   * The cached value of the '{@link #getCommands() <em>Commands</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue3()
+   * @see #getCommands()
    * @generated
    * @ordered
    */
-  protected static final int VALUE3_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getValue3() <em>Value3</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue3()
-   * @generated
-   * @ordered
-   */
-  protected int value3 = VALUE3_EDEFAULT;
+  protected EList<Command> commands;
 
   /**
    * <!-- begin-user-doc -->
@@ -148,9 +143,13 @@ public class ConditionalImpl extends CommandImpl implements Conditional
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getValue3()
+  public EList<Command> getCommands()
   {
-    return value3;
+    if (commands == null)
+    {
+      commands = new EObjectContainmentEList<Command>(Command.class, this, SchemePackage.CONDITIONAL__COMMANDS);
+    }
+    return commands;
   }
 
   /**
@@ -158,12 +157,15 @@ public class ConditionalImpl extends CommandImpl implements Conditional
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue3(int newValue3)
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    int oldValue3 = value3;
-    value3 = newValue3;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SchemePackage.CONDITIONAL__VALUE3, oldValue3, value3));
+    switch (featureID)
+    {
+      case SchemePackage.CONDITIONAL__COMMANDS:
+        return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -180,8 +182,8 @@ public class ConditionalImpl extends CommandImpl implements Conditional
         return getAt();
       case SchemePackage.CONDITIONAL__VALUE2:
         return getValue2();
-      case SchemePackage.CONDITIONAL__VALUE3:
-        return getValue3();
+      case SchemePackage.CONDITIONAL__COMMANDS:
+        return getCommands();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -204,8 +206,9 @@ public class ConditionalImpl extends CommandImpl implements Conditional
       case SchemePackage.CONDITIONAL__VALUE2:
         setValue2((Integer)newValue);
         return;
-      case SchemePackage.CONDITIONAL__VALUE3:
-        setValue3((Integer)newValue);
+      case SchemePackage.CONDITIONAL__COMMANDS:
+        getCommands().clear();
+        getCommands().addAll((Collection<? extends Command>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -227,8 +230,8 @@ public class ConditionalImpl extends CommandImpl implements Conditional
       case SchemePackage.CONDITIONAL__VALUE2:
         setValue2(VALUE2_EDEFAULT);
         return;
-      case SchemePackage.CONDITIONAL__VALUE3:
-        setValue3(VALUE3_EDEFAULT);
+      case SchemePackage.CONDITIONAL__COMMANDS:
+        getCommands().clear();
         return;
     }
     super.eUnset(featureID);
@@ -248,8 +251,8 @@ public class ConditionalImpl extends CommandImpl implements Conditional
         return at != null && !at.isEmpty();
       case SchemePackage.CONDITIONAL__VALUE2:
         return value2 != VALUE2_EDEFAULT;
-      case SchemePackage.CONDITIONAL__VALUE3:
-        return value3 != VALUE3_EDEFAULT;
+      case SchemePackage.CONDITIONAL__COMMANDS:
+        return commands != null && !commands.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -264,13 +267,11 @@ public class ConditionalImpl extends CommandImpl implements Conditional
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuffer result = new StringBuffer(super.toString());
+    StringBuilder result = new StringBuilder(super.toString());
     result.append(" (at: ");
     result.append(at);
     result.append(", value2: ");
     result.append(value2);
-    result.append(", value3: ");
-    result.append(value3);
     result.append(')');
     return result.toString();
   }

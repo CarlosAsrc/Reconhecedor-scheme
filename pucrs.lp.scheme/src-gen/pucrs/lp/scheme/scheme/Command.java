@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link pucrs.lp.scheme.scheme.Command#getValue <em>Value</em>}</li>
+ *   <li>{@link pucrs.lp.scheme.scheme.Command#getAtom <em>Atom</em>}</li>
  * </ul>
  *
  * @see pucrs.lp.scheme.scheme.SchemePackage#getCommand()
@@ -24,29 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface Command extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Atom</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Atom</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(int)
-   * @see pucrs.lp.scheme.scheme.SchemePackage#getCommand_Value()
+   * @return the value of the '<em>Atom</em>' attribute.
+   * @see #setAtom(String)
+   * @see pucrs.lp.scheme.scheme.SchemePackage#getCommand_Atom()
    * @model
    * @generated
    */
-  int getValue();
+  String getAtom();
 
   /**
-   * Sets the value of the '{@link pucrs.lp.scheme.scheme.Command#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link pucrs.lp.scheme.scheme.Command#getAtom <em>Atom</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
-   * @see #getValue()
+   * @param value the new value of the '<em>Atom</em>' attribute.
+   * @see #getAtom()
    * @generated
    */
-  void setValue(int value);
+  void setAtom(String value);
 
 } // Command
