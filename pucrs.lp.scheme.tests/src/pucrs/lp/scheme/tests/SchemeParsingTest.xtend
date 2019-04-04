@@ -18,7 +18,32 @@ class SchemeParsingTest {
 	@Inject
 	ParseHelper<Model> parseHelper
 	
+	/*Alguns dos testes abaixo foram baseados em estudos e pesquisas feitas nos respectivos links:
+	 * 
+	 * 	Scheme - Expressions (https://www.cs.cmu.edu/Groups/AI/html/r4rs/r4rs_6.html);
+	 *  Using 'Define' in Scheme (https://stackoverflow.com/questions/15959319/using-define-in-scheme);
+	 *  Scheme (https://www.csc.lsu.edu/~gb/csc4101/Slides/Scheme.pdf);
+	 *  Scheme Basics (https://courses.cs.washington.edu/courses/cse341/03wi/scheme/basics.html);
+	 * 
+	 */
 	
+	@Test
+	def void loadModel() {
+		val result = parseHelper.parse('''
+			10
+		''')
+		Assertions.assertNotNull(result)
+		Assertions.assertTrue(result.eResource.errors.isEmpty)
+	}
+	
+	@Test
+	def void loadModel1() {
+		val result = parseHelper.parse('''
+			(- n 1)
+		''')
+		Assertions.assertNotNull(result)
+		Assertions.assertTrue(result.eResource.errors.isEmpty)
+	}
 	
 	@Test
 	def void operacaoAritmeticaTest() {

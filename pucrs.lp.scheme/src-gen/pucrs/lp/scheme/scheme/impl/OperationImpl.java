@@ -246,7 +246,7 @@ public class OperationImpl extends CommandImpl implements Operation
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (operator: ");
     result.append(operator);
     result.append(", atom2: ");

@@ -167,7 +167,7 @@ public class ParameterImpl extends CommandImpl implements Parameter
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (n: ");
     result.append(n);
     result.append(')');

@@ -168,7 +168,7 @@ public class CommandImpl extends MinimalEObjectImpl.Container implements Command
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (atom: ");
     result.append(atom);
     result.append(')');

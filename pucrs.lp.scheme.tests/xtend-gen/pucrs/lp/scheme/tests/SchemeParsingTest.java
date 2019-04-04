@@ -25,6 +25,42 @@ public class SchemeParsingTest {
   @Inject
   private ParseHelper<Model> parseHelper;
   
+  /**
+   * Alguns dos testes abaixo foram baseados em estudos e pesquisas feitas nos respectivos links:
+   * 
+   * 	Scheme - Expressions (https://www.cs.cmu.edu/Groups/AI/html/r4rs/r4rs_6.html);
+   *  Using 'Define' in Scheme (https://stackoverflow.com/questions/15959319/using-define-in-scheme);
+   *  Scheme (https://www.csc.lsu.edu/~gb/csc4101/Slides/Scheme.pdf);
+   *  Scheme Basics (https://courses.cs.washington.edu/courses/cse341/03wi/scheme/basics.html);
+   */
+  @Test
+  public void loadModel() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("10");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      Assertions.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModel1() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(- n 1)");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      Assertions.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
   @Test
   public void operacaoAritmeticaTest() {
     try {

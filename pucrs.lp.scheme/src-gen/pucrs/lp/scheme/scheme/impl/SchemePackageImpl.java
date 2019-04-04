@@ -106,7 +106,7 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
 
   /**
    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-   *
+   * 
    * <p>This method is used to initialize {@link SchemePackage#eINSTANCE} when that field is accessed.
    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
    * <!-- begin-user-doc -->
@@ -121,8 +121,7 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
     if (isInited) return (SchemePackage)EPackage.Registry.INSTANCE.getEPackage(SchemePackage.eNS_URI);
 
     // Obtain or create and register package
-    Object registeredSchemePackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-    SchemePackageImpl theSchemePackage = registeredSchemePackage instanceof SchemePackageImpl ? (SchemePackageImpl)registeredSchemePackage : new SchemePackageImpl();
+    SchemePackageImpl theSchemePackage = (SchemePackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SchemePackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new SchemePackageImpl());
 
     isInited = true;
 
@@ -135,6 +134,7 @@ public class SchemePackageImpl extends EPackageImpl implements SchemePackage
     // Mark meta-data to indicate it can't be changed
     theSchemePackage.freeze();
 
+  
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(SchemePackage.eNS_URI, theSchemePackage);
     return theSchemePackage;

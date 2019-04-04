@@ -302,7 +302,7 @@ public class DefineImpl extends CommandImpl implements Define
   {
     if (eIsProxy()) return super.toString();
 
-    StringBuilder result = new StringBuilder(super.toString());
+    StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name1: ");
     result.append(name1);
     result.append(')');
