@@ -29,6 +29,20 @@ public class SchemeParsingTest {
   public void loadModel() {
     try {
       StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(- n 1)");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      Assertions.assertTrue(result.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModel1() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
       _builder.append("(define x 10)");
       _builder.newLine();
       final Model result = this.parseHelper.parse(_builder);
@@ -39,14 +53,14 @@ public class SchemeParsingTest {
       _builder_1.append("Unexpected errors: ");
       String _join = IterableExtensions.join(errors, ", ");
       _builder_1.append(_join);
-      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+      Assertions.assertTrue(result.eResource().getErrors().isEmpty());
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
   }
   
   @Test
-  public void loadModel1() {
+  public void loadModel2() {
     try {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("(define (f x)");
@@ -67,4 +81,59 @@ public class SchemeParsingTest {
       throw Exceptions.sneakyThrow(_e);
     }
   }
+
+  @Test
+  public void loadModel3() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("( if (= 1 2) 2 )");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("( if (= n 2) 3 )");
+      _builder_1.newLine();
+      final Model result2 = this.parseHelper.parse(_builder_1);
+      Assertions.assertNotNull(result2);
+      Assertions.assertTrue(result.eResource().getErrors().isEmpty());
+      Assertions.assertTrue(result2.eResource().getErrors().isEmpty());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  
+  @Test
+  public void loadModel4() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(/ n (f (- n 1)))");
+      _builder.newLine();
+      final Model result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+      
+
+@Test
+public void loadModel5() {
+  try {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("10");
+    _builder.newLine();
+    final Model result = this.parseHelper.parse(_builder);
+    Assertions.assertNotNull(result);
+    Assertions.assertTrue(result.eResource().getErrors().isEmpty());
+  } catch (Throwable _e) {
+    throw Exceptions.sneakyThrow(_e);
+  }
+}
 }

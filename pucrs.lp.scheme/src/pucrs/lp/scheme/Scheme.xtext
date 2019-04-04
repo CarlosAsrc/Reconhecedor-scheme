@@ -4,10 +4,8 @@ generate scheme "http://www.lp.pucrs/scheme/Scheme"
 
 Model:
 	commands+=Command*;
-	
 Command:
-	//'Hello' name=ID '!'
-	Operation | Define | Parameter
+	Operation | Define | Parameter | Conditional | value=INT
 ;
 	
 Operation:
@@ -18,20 +16,20 @@ SimpleOperation:
 	"(" (operator+=Operator) (value+=Atom)+ ")"
 ;
 
-
-
 Define:
 	"(" "define"  (name1=ID | parameters+=Parameter) (atons2+=Atom | parameters+=Parameter | operation=Operation) ")"
 ;
 
-Parameter:
-	"(" value=ID atom=Atom ")"
+Conditional:
+	'(' 'if' '(' '=' (at+=Atom) value2=INT ')' value3=INT ')'?
 ;
 
-
+Parameter:
+	"(" n=ID atom=Atom ")"
+;
 
 Atom:
-	ID| INT;
+	ID | INT;
 
 
 terminal Operator:
